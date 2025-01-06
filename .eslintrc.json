@@ -17,12 +17,25 @@
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "prettier", "react", "react-refresh", "import", "prefer-arrow"],
+  "plugins": [
+    "@typescript-eslint",
+    "prettier",
+    "react",
+    "react-refresh",
+    "import"
+  ],
   "rules": {
     "@typescript-eslint/no-unused-vars": "warn",
     "@typescript-eslint/consistent-type-definitions": ["error", "type"],
-    "react-refresh/only-export-components": ["warn", { "allowConstantExport": true }],
-    "react/destructuring-assignment": ["warn", "always", { "destructureInSignature": "always" }],
+    "react-refresh/only-export-components": [
+      "warn",
+      { "allowConstantExport": true }
+    ],
+    "react/destructuring-assignment": [
+      "warn",
+      "always",
+      { "destructureInSignature": "always" }
+    ],
     "react/jsx-curly-brace-presence": [
       "warn",
       { "props": "never", "children": "never", "propElementValues": "always" }
