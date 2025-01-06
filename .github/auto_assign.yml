@@ -1,0 +1,13 @@
+addReviewers: true
+
+addAssignees: true
+
+reviewers:
+  - keemsebin
+  - yougyung
+  - ujinsim
+
+skipKeywords:
+  - wip
+
+numberOfReviewers: 0
