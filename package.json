@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prepare": "husky && husky install"
   },
   "dependencies": {
     "@storybook/addon-a11y": "^8.4.7",
@@ -61,6 +62,7 @@
     "eslint-plugin-storybook": "^0.11.2",
     "eslint-plugin-vitest-globals": "^1.5.0",
     "husky": "^9.1.7",
+    "lint-staged": "^15.3.0",
     "postcss": "^8",
     "prettier": "^3.4.2",
     "storybook": "^8.4.7",
@@ -76,5 +78,12 @@
     "workerDirectory": [
       "public"
     ]
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint --ext .tsx --ext .ts src/",
+      "prettier --write"
+    ],
+    "*.js": "eslint --cache --fix"
   }
 }
