@@ -66,7 +66,6 @@ const withBaseTypography = (element: ElementType, variant: TypographyVariant) =>
   }
   return Typography;
 };
-
 export const Head1 = withBaseTypography('h1', 'Head1');
 export const Head2 = withBaseTypography('h2', 'Head2');
 export const Head3 = withBaseTypography('h3', 'Head3');
