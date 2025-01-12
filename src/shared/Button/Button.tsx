@@ -1,3 +1,3 @@
 export default function Button() {
-  return <button className="button">Button</button>;
+  return <button className="button">Button1</button>;
 }
