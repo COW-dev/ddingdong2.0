@@ -1,5 +1,7 @@
 import type { Config } from 'tailwindcss';
 
+import { colors } from './src/shared/ui/colors/colors';
+
 export default {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -8,10 +10,7 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        background: 'var(--background)',
-        foreground: 'var(--foreground)',
-      },
+      colors,
     },
   },
   plugins: [],
