@@ -3,7 +3,7 @@ name: Preview Storybook
 on:
   pull_request:
     paths:
-      - 'src/shared/**'
+      - 'src/**'
     types: [opened, reopened, synchronize]
     branches: ['main']
   workflow_dispatch:
@@ -12,10 +12,10 @@ jobs:
   preview-storybook:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
 
       - name: install packages
-        run: npm ci
+        run: npm install
 
       - name: deploy chromatic
         id: chromatic
