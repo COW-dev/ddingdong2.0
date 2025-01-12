@@ -1,13 +1,9 @@
 addReviewers: true
-
-addAssignees: true
+addAssignees: author
 
 reviewers:
   - keemsebin
   - yougyung
   - ujinsim
 
-skipKeywords:
-  - wip
-
-numberOfReviewers: 0
+numberOfReviewers: 2
