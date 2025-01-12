@@ -3,7 +3,7 @@ name: Preview Storybook
 on:
   pull_request:
     paths:
-      - 'src/components/**'
+      - 'src/shared/**'
     types: [opened, reopened, synchronize]
     branches: ['main']
   workflow_dispatch:

@@ -4,7 +4,7 @@ on:
     types:
       - closed
     paths:
-      - 'src/components/**'
+      - 'src/shared/**'
 
 jobs:
   deploy-storybook:
