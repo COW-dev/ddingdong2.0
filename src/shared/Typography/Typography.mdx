@@ -1,0 +1,126 @@
+import { Meta, Typeset } from '@storybook/blocks';
+
+<Meta title="components/common/Typography" />
+
+export const typography = {
+  type: {
+    primary: 'Pretendard',
+  },
+  weight: {
+    regular: '400',
+    semibold: '600',
+    bold: '700',
+  },
+  size: {
+    32: '32px',
+    28: '28px',
+    24: '24px',
+    22: '22px',
+    20: '20px',
+    18: '18px',
+    16: '16px',
+    14: '14px',
+    12: '12px',
+  },
+};
+
+export const SampleText = '예시입니다 .';
+
+## Headings
+
+<Typeset
+  fontSizes={[typography.size[32]]}
+  fontWeight={typography.weight.bold}
+  sampleText={`Head1: ${SampleText}`}
+  fontFamily={typography.type.primary}
+/>
+<Typeset
+  fontSizes={[typography.size[28]]}
+  fontWeight={typography.weight.bold}
+  sampleText={`Head2: ${SampleText}`}
+  fontFamily={typography.type.primary}
+/>
+<Typeset
+  fontSizes={[typography.size[24]]}
+  fontWeight={typography.weight.bold}
+  sampleText={`Head3: ${SampleText}`}
+  fontFamily={typography.type.primary}
+/>
+<Typeset
+  fontSizes={[typography.size[22]]}
+  fontWeight={typography.weight.bold}
+  sampleText={`Head4: ${SampleText}`}
+  fontFamily={typography.type.primary}
+/>
+
+## Subtitles
+
+<Typeset
+  fontSizes={[typography.size[18]]}
+  fontWeight={typography.weight.semibold}
+  sampleText={`Subtitle1: ${SampleText}`}
+  fontFamily={typography.type.primary}
+/>
+<Typeset
+  fontSizes={[typography.size[16]]}
+  fontWeight={typography.weight.semibold}
+  sampleText={`Subtitle2: ${SampleText}`}
+  fontFamily={typography.type.primary}
+/>
+<Typeset
+  fontSizes={[typography.size[14]]}
+  fontWeight={typography.weight.semibold}
+  sampleText={`Subtitle3: ${SampleText}`}
+  fontFamily={typography.type.primary}
+/>
+
+## Body Text
+
+<Typeset
+  fontSizes={[typography.size[18]]}
+  fontWeight={typography.weight.regular}
+  sampleText={`Body1: ${SampleText}`}
+  fontFamily={typography.type.primary}
+/>
+<Typeset
+  fontSizes={[typography.size[16]]}
+  fontWeight={typography.weight.regular}
+  sampleText={`Body2: ${SampleText}`}
+  fontFamily={typography.type.primary}
+/>
+<Typeset
+  fontSizes={[typography.size[14]]}
+  fontWeight={typography.weight.regular}
+  sampleText={`Body3: ${SampleText}`}
+  fontFamily={typography.type.primary}
+/>
+
+## Captions
+
+<Typeset
+  fontSizes={[typography.size[14]]}
+  fontWeight={typography.weight.regular}
+  sampleText={`Caption1: ${SampleText}`}
+  fontFamily={typography.type.primary}
+/>
+<Typeset
+  fontSizes={[typography.size[12]]}
+  fontWeight={typography.weight.regular}
+  sampleText={`Caption2: ${SampleText}`}
+  fontFamily={typography.type.primary}
+/>
+
+## Buttons
+
+<Typeset
+  fontSizes={[typography.size[18]]}
+  fontWeight={typography.weight.bold}
+  sampleText={`ButtonTitle1: ${SampleText}`}
+  fontFamily={typography.type.primary}
+/>
+<Typeset
+  fontSizes={[typography.size[14]]}
+  fontWeight={typography.weight.bold}
+  sampleText={`ButtonTitle2: ${SampleText}`}
+  fontFamily={typography.type.primary}
+/>
