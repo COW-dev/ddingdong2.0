@@ -1,6 +1,8 @@
 import React from 'react';
 import { cva } from 'class-variance-authority';
 
+import { cn } from '@/shared/utils/core';
+
 type VariantColorMap = {
   primary: 'red' | 'blue';
   secondary: 'red' | 'blue' | 'green';
@@ -13,6 +15,7 @@ type Color<V extends Variant> = VariantColorMap[V];
 export type ButtonProps<V extends Variant = 'primary' | 'secondary' | 'tertiary'> = {
   variant: V;
   color?: Color<V>;
+  isLoading?: boolean;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const ButtonVariants = cva(
@@ -53,11 +56,21 @@ export const ButtonVariants = cva(
 );
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function Button(
-  { children, variant = 'primary', color, ...props },
+  { children, variant = 'primary', color, isLoading, disabled, ...props },
   ref
 ) {
+  const isDisabled = isLoading || disabled;
+  const tertiaryClasses = ButtonVariants({ variant: 'tertiary' });
   return (
-    <button className={ButtonVariants({ variant, color })} {...props} ref={ref}>
+    <button
+      className={cn(
+        ButtonVariants({ variant, color }),
+        isDisabled && `cursor-not-allowed ${tertiaryClasses}`
+      )}
+      disabled={isDisabled}
+      {...props}
+      ref={ref}
+    >
       {children}
     </button>
   );
