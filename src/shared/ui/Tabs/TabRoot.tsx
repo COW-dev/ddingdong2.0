@@ -23,8 +23,10 @@ export function TabRoot({ children, defaultIndex = 0 }: Props) {
 
   return (
     <TabContext.Provider value={{ activeLabel, setActiveLabel, labels }}>
-      <TabNav />
-      {children}
+      <div className="w-full">
+        <TabNav />
+        {children}
+      </div>
     </TabContext.Provider>
   );
 }
