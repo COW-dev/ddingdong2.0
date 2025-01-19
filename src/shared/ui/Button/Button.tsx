@@ -9,12 +9,12 @@ type VariantColorMap = {
   tertiary: never;
 };
 
-type Variant = keyof VariantColorMap;
-type Color<V extends Variant> = VariantColorMap[V];
+export type ButtonVariant = keyof VariantColorMap;
+type ButtonColor<V extends ButtonVariant> = VariantColorMap[V];
 
-export type ButtonProps<V extends Variant = 'primary' | 'secondary' | 'tertiary'> = {
+export type ButtonProps<V extends keyof VariantColorMap> = {
   variant: V;
-  color?: Color<V>;
+  color?: ButtonColor<V>;
   isLoading?: boolean;
   rounded?: boolean;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
@@ -56,25 +56,28 @@ export const ButtonVariants = cva(
   }
 );
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function Button(
-  { children, variant = 'primary', color, rounded, isLoading, disabled, className, ...props },
-  ref
-) {
-  const isDisabled = isLoading || disabled;
-  const tertiaryClasses = ButtonVariants({ variant: 'tertiary' });
-  return (
-    <button
-      className={cn(
-        ButtonVariants({ variant, color }),
-        isDisabled && `cursor-not-allowed ${tertiaryClasses}`,
-        rounded && 'rounded-full md:rounded-full',
-        className
-      )}
-      disabled={isDisabled}
-      {...props}
-      ref={ref}
-    >
-      {children}
-    </button>
-  );
-});
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps<ButtonVariant>>(
+  function Button(
+    { children, variant, color, rounded, isLoading, disabled, className, ...props },
+    ref
+  ) {
+    const isDisabled = isLoading || disabled;
+    const tertiaryClasses = ButtonVariants({ variant: 'tertiary' });
+
+    return (
+      <button
+        className={cn(
+          ButtonVariants({ variant, color }),
+          isDisabled && `cursor-not-allowed ${tertiaryClasses}`,
+          rounded && 'rounded-full md:rounded-full',
+          className
+        )}
+        disabled={isDisabled}
+        {...props}
+        ref={ref}
+      >
+        {children}
+      </button>
+    );
+  }
+);

@@ -1,15 +1,18 @@
 import React from 'react';
 import type { Meta, StoryObj, StoryContext } from '@storybook/react';
 
-import { Button, ButtonProps } from './Button';
+import { Button, ButtonProps, ButtonVariant as Variant } from './Button';
 
-const allowedColors: Record<ButtonProps['variant'], Array<ButtonProps['color']>> = {
+const allowedColors: Record<
+  ButtonProps<Variant>['variant'],
+  Array<ButtonProps<Variant>['color']>
+> = {
   primary: ['blue', 'red'],
   secondary: ['blue', 'red', 'green'],
   tertiary: [],
 };
 
-const meta: Meta<ButtonProps> = {
+const meta: Meta<ButtonProps<Variant>> = {
   title: 'components/common/Button',
   component: Button,
   tags: ['autodocs'],
@@ -17,7 +20,7 @@ const meta: Meta<ButtonProps> = {
     variant: {
       description: 'Button의 Variant를 설정합니다.',
       table: {
-        type: { summary: "'primary' | 'secondary' | 'tertiary'" },
+        type: { summary: 'ButtonVariant' },
         defaultValue: { summary: 'primary' },
       },
       options: ['primary', 'secondary', 'tertiary'],
@@ -28,7 +31,7 @@ const meta: Meta<ButtonProps> = {
     color: {
       description: 'Button의 color를 설정합니다.',
       table: {
-        type: { summary: "'blue' | 'red' | 'green'" },
+        type: { summary: 'ButtonColor<V>' },
         defaultValue: { summary: 'blue' },
       },
       options: ['blue', 'red'],
@@ -49,7 +52,7 @@ const meta: Meta<ButtonProps> = {
     },
   },
   decorators: [
-    (Story, context: StoryContext<ButtonProps>) => {
+    (Story, context: StoryContext<ButtonProps<Variant>>) => {
       const { args } = context;
 
       if (context.argTypes.color)
@@ -61,20 +64,37 @@ const meta: Meta<ButtonProps> = {
 };
 
 export default meta;
-type Story = StoryObj<ButtonProps>;
+type Story = StoryObj<ButtonProps<Variant>>;
 
-export const PrimaryButton: Story = {
+export const Primary: Story = {
   args: {
     variant: 'primary',
     color: 'blue',
-    children: 'Test',
+    children: 'PrimaryButton',
   },
 };
 
-export const SecondaryButton: Story = {
+export const Secondary: Story = {
   args: {
     variant: 'secondary',
     color: 'blue',
-    children: 'Test',
+    children: 'SecondaryButton',
+  },
+};
+
+export const Tertiary: Story = {
+  args: {
+    variant: 'tertiary',
+    color: 'blue',
+    children: 'TertiaryButton',
+  },
+};
+
+export const Loading: Story = {
+  args: {
+    variant: 'primary',
+    color: 'blue',
+    isLoading: true,
+    children: 'PrimaryButton + isLoading(true)',
   },
 };
