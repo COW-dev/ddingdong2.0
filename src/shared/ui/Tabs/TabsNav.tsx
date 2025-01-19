@@ -1,11 +1,9 @@
 import { useContext } from 'react';
 
-import { cn } from '@/shared/utils/core';
+import { TabsContext } from './Tabs.context';
 
-import { TabContext } from './Tab.context';
-
-export function TabNav() {
-  const content = useContext(TabContext);
+export function TabsNav() {
+  const content = useContext(TabsContext);
   if (!content) return <></>;
   const { activeLabel, setActiveLabel, labels } = content;
 

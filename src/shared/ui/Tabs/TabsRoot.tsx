@@ -1,15 +1,15 @@
 'use client';
 import { Children, isValidElement, ReactElement, useMemo, useState } from 'react';
 
-import { TabContext } from './Tab.context';
-import { TabNav } from './TabNav';
+import { TabsContext } from './Tabs.context';
+import { TabsNav } from './TabsNav';
 
 type Props = {
   children: React.ReactNode;
   defaultIndex?: number;
 };
 
-export function TabRoot({ children, defaultIndex = 0 }: Props) {
+export function TabsRoot({ children, defaultIndex = 0 }: Props) {
   const labels = useMemo(
     () =>
       Children.toArray(children)
@@ -22,11 +22,11 @@ export function TabRoot({ children, defaultIndex = 0 }: Props) {
   const [activeLabel, setActiveLabel] = useState<LabelType>(labels[defaultIndex]);
 
   return (
-    <TabContext.Provider value={{ activeLabel, setActiveLabel, labels }}>
+    <TabsContext.Provider value={{ activeLabel, setActiveLabel, labels }}>
       <div className="w-full">
-        <TabNav />
+        <TabsNav />
         {children}
       </div>
-    </TabContext.Provider>
+    </TabsContext.Provider>
   );
 }

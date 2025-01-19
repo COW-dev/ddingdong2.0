@@ -1,9 +1,9 @@
 import { createContext } from 'react';
 
-type TabContextType = {
+type TabsContextType = {
   activeLabel: string;
   setActiveLabel: (label: string) => void;
   labels: string[];
 };
 
-export const TabContext = createContext<TabContextType | undefined>(undefined);
+export const TabsContext = createContext<TabsContextType | undefined>(undefined);
