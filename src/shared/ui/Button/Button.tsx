@@ -16,6 +16,7 @@ export type ButtonProps<V extends Variant = 'primary' | 'secondary' | 'tertiary'
   variant: V;
   color?: Color<V>;
   isLoading?: boolean;
+  rounded?: boolean;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const ButtonVariants = cva(
@@ -56,7 +57,7 @@ export const ButtonVariants = cva(
 );
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function Button(
-  { children, variant = 'primary', color, isLoading, disabled, ...props },
+  { children, variant = 'primary', color, rounded, isLoading, disabled, className, ...props },
   ref
 ) {
   const isDisabled = isLoading || disabled;
@@ -65,7 +66,9 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function 
     <button
       className={cn(
         ButtonVariants({ variant, color }),
-        isDisabled && `cursor-not-allowed ${tertiaryClasses}`
+        isDisabled && `cursor-not-allowed ${tertiaryClasses}`,
+        rounded && 'rounded-full md:rounded-full',
+        className
       )}
       disabled={isDisabled}
       {...props}
