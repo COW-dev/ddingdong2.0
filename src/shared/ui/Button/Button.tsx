@@ -1,7 +1,7 @@
 import React from 'react';
 import { cva } from 'class-variance-authority';
 
-import { cn } from '@/shared/utils/core';
+import { cn } from '@/shared/core';
 
 type VariantColorMap = {
   primary: 'red' | 'blue';
