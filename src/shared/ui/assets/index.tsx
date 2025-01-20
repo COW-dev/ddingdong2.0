@@ -1,3 +1,5 @@
+import { colors } from '@/shared/lib/colors';
+
 import Add from './add.svg';
 import ArrowDown from './arrow-down.svg';
 import ArrowUp from './arrow-up.svg';
@@ -12,8 +14,6 @@ import Pin from './pin.svg';
 import Trash from './trash.svg';
 import Write from './write.svg';
 import Youtube from './youtube.svg';
-
-import { colors } from '../Colors/colors';
 
 export const Icons = {
   add: Add,
