@@ -1,6 +1,6 @@
 import type { Config } from 'tailwindcss';
 
-import { colors } from './src/shared/ui/colors/colors';
+import { colors } from './src/shared/ui/Colors/colors';
 
 export default {
   content: [

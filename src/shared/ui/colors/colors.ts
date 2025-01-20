@@ -36,7 +36,6 @@ export const colors = {
   indigo: '#6366f1',
   white: '#ffffff',
   black: '#000000',
-  current: 'currentColor',
 };
 
 export type Colors = keyof typeof colors;
