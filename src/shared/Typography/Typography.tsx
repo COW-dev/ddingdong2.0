@@ -1,82 +1,44 @@
-import React, { ComponentPropsWithoutRef, ElementType } from 'react';
+'use client';
+import { ComponentPropsWithoutRef, ElementType } from 'react';
 
-const colors = {
-  BK: 'text-black',
-  WH: 'text-white',
-  GR: 'text-gray-600',
-};
+import { colors, Colors } from '@/shared/ui/colors/colors';
 
-const weights = {
-  regular: 'font-normal',
-  semibold: 'font-semibold',
-  bold: 'font-bold',
-};
+import { StyledTypography, TypographyVariant } from './TypographyStyles';
 
-export type TypographyVariant =
-  | 'Head1'
-  | 'Head2'
-  | 'Head3'
-  | 'Head4'
-  | 'ButtonTitle1'
-  | 'ButtonTitle2'
-  | 'Subtitle1'
-  | 'Subtitle2'
-  | 'Subtitle3'
-  | 'Body1'
-  | 'Body2'
-  | 'Body3'
-  | 'Caption1'
-  | 'Caption2';
-
-const variantClasses: Record<TypographyVariant, string> = {
-  Head1: 'text-4xl font-bold',
-  Head2: 'text-3xl font-bold',
-  Head3: 'text-2xl font-bold',
-  Head4: 'text-xl font-bold',
-  ButtonTitle1: 'text-lg font-bold',
-  ButtonTitle2: 'text-sm font-bold',
-  Subtitle1: 'text-lg font-semibold',
-  Subtitle2: 'text-base font-semibold',
-  Subtitle3: 'text-sm font-semibold',
-  Body1: 'text-lg font-medium',
-  Body2: 'text-base font-medium',
-  Body3: 'text-sm font-medium',
-  Caption1: 'text-sm font-normal',
-  Caption2: 'text-xs font-normal',
-};
-
-type Props = {
-  regularWeight?: boolean;
-  color?: keyof typeof colors;
+type TypographyProps = {
+  color?: Colors;
+  style?: React.CSSProperties;
 } & ComponentPropsWithoutRef<'p'>;
 
-const withBaseTypography = (element: ElementType, variant: TypographyVariant) => {
-  function Typography({
-    children,
-    regularWeight = false,
-    color = 'BK',
-    className,
-    ...props
-  }: Props) {
-    const colorClass = colors[color];
-    const weightClass = regularWeight ? weights.regular : '';
-    const combinedClasses = `${variantClasses[variant]} ${colorClass} ${weightClass} ${className || ''}`;
+const createTypographyComponent = (element: ElementType, variant: TypographyVariant) => {
+  function Typography({ children, color = 'black', style, ...props }: TypographyProps) {
+    const selectedColor =
+      typeof colors[color] === 'string'
+        ? colors[color]
+        : (colors[color] as { [key: number]: string })[500] || colors.black;
 
-    return React.createElement(element, { className: combinedClasses, ...props }, children);
+    const _style = { ...style, color: selectedColor };
+
+    return (
+      <StyledTypography as={element} variant={variant} style={_style} {...props}>
+        {children}
+      </StyledTypography>
+    );
   }
+
   return Typography;
 };
-export const Head1 = withBaseTypography('h1', 'Head1');
-export const Head2 = withBaseTypography('h2', 'Head2');
-export const Head3 = withBaseTypography('h3', 'Head3');
-export const Head4 = withBaseTypography('h4', 'Head4');
-export const ButtonTitle1 = withBaseTypography('button', 'ButtonTitle1');
-export const ButtonTitle2 = withBaseTypography('button', 'ButtonTitle2');
-export const Subtitle1 = withBaseTypography('p', 'Subtitle1');
-export const Subtitle2 = withBaseTypography('p', 'Subtitle2');
-export const Subtitle3 = withBaseTypography('p', 'Subtitle3');
-export const Body1 = withBaseTypography('p', 'Body1');
-export const Body2 = withBaseTypography('p', 'Body2');
-export const Body3 = withBaseTypography('p', 'Body3');
-export const Caption1 = withBaseTypography('p', 'Caption1');
-export const Caption2 = withBaseTypography('p', 'Caption2');
+
+export const Title1 = createTypographyComponent('h1', 'Title1');
+export const Title2 = createTypographyComponent('h2', 'Title2');
+export const Title3 = createTypographyComponent('h3', 'Title3');
+export const Subtitle1 = createTypographyComponent('h4', 'Subtitle1');
+export const Subtitle2 = createTypographyComponent('h5', 'Subtitle2');
+export const Subtitle3 = createTypographyComponent('h6', 'Subtitle3');
+export const Body1 = createTypographyComponent('p', 'Body1');
+export const Body2 = createTypographyComponent('p', 'Body2');
+export const Body3 = createTypographyComponent('p', 'Body3');
+export const Caption1 = createTypographyComponent('span', 'Caption1');
+export const Caption2 = createTypographyComponent('span', 'Caption2');
+export const ButtonTitle1 = createTypographyComponent('button', 'ButtonTitle1');
+export const ButtonTitle2 = createTypographyComponent('button', 'ButtonTitle2');
