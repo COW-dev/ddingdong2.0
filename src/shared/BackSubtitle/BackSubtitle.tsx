@@ -12,7 +12,10 @@ export default function BackSubtitle({ title }: BackSubtitleProps) {
   const router = useRouter();
 
   return (
-    <div className="flex cursor-pointer flex-row items-center gap-4" onClick={() => router.back()}>
+    <button
+      className="flex cursor-pointer flex-row items-center gap-4"
+      onClick={() => router.back()}
+    >
       <svg
         width="13"
         height="21"
@@ -29,6 +32,6 @@ export default function BackSubtitle({ title }: BackSubtitleProps) {
         />
       </svg>
       <Head3 color="GR">{title}</Head3>
-    </div>
+    </button>
   );
 }
