@@ -14,7 +14,7 @@ const meta: Meta<typeof BackSubtitle> = {
   ],
   parameters: {
     nextjs: {
-      path: '/',
+      appDirectory: true,
     },
 
     docs: {
