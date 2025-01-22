@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Tabs from '.';
+import { Tabs, Item } from '.';
 
 const meta = {
   title: 'components/common/Tabs',
@@ -26,15 +26,15 @@ type Story = StoryObj<typeof Tabs>;
 export const Basic: Story = {
   render: () => (
     <Tabs defaultIndex={0}>
-      <Tabs.Item label="공지사항">
+      <Item label="공지사항">
         <div className="my-4 text-center">1번 탭 컴포넌트</div>
-      </Tabs.Item>
-      <Tabs.Item label="피드">
+      </Item>
+      <Item label="피드">
         <div className="my-4 text-center">2번 탭 컴포넌트</div>
-      </Tabs.Item>
-      <Tabs.Item label="활동보고서">
+      </Item>
+      <Item label="활동보고서">
         <div className="my-4 text-center">3번 탭 컴포넌트</div>
-      </Tabs.Item>
+      </Item>
     </Tabs>
   ),
 };

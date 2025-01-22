@@ -1,8 +1,2 @@
-import { TabsItem } from './TabsItem';
-import { TabsRoot } from './TabsRoot';
-
-const Tabs = Object.assign(TabsRoot, {
-  Item: TabsItem,
-});
-
-export default Tabs;
+export { TabsRoot as Tabs } from './TabsRoot';
+export { TabsItem as Item } from './TabsItem';
