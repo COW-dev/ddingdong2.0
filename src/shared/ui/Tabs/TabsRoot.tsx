@@ -23,15 +23,15 @@ export function TabsRoot({ children, defaultIndex = 0 }: Props) {
 
   return (
     <TabsContext.Provider value={{ activeLabel }}>
-      <nav className="flex w-full list-none items-center justify-center">
+      <nav className="flex w-full">
         {labels.map((label) => (
           <motion.button
             key={label}
-            className={`grow p-3 font-semibold w-1/${labels.length} ${
+            className={`grow transform p-3 font-semibold w-1/${labels.length} ${
               activeLabel === label
-                ? 'translate-x-2 transform text-primary-300 hover:bg-primary-50'
+                ? 'text-primary-300 hover:bg-primary-50'
                 : 'text-gray-500 hover:bg-gray-50'
-            } transition-all duration-300 ease-in-out md:p-4 md:text-xl`}
+            } md:p-4 md:text-xl`}
             onClick={() => setActiveLabel(label)}
           >
             {label}
