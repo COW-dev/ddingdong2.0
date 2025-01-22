@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Button from './Button';
-import DoubleButton, { Props } from './DoubleButton';
+import { DoubleButton, Props } from './DoubleButton';
+
+import { Button } from '../Button/Button';
 
 const meta: Meta = {
   title: 'components/common/DoubleButton',

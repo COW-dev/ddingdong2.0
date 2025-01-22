@@ -5,7 +5,7 @@ export type Props = {
   right: ReactNode;
 };
 
-export default function DoubleButton({ left, right }: Props) {
+export function DoubleButton({ left, right }: Props) {
   return (
     <div className="flex items-center justify-center gap-2">
       {left}
