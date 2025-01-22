@@ -1,5 +1,3 @@
-import { colors } from '@/shared/lib/colors';
-
 import Add from './add.svg';
 import ArrowDown from './arrow-down.svg';
 import ArrowUp from './arrow-up.svg';
@@ -33,14 +31,5 @@ export const Icons = {
   youtube: Youtube,
 };
 
-export const COLORS = {
-  primary: colors['primary'][300],
-  gray: colors['gray'][300],
-  red: colors['red'][300],
-  green: colors['green'][300],
-  black: colors['black'],
-};
-
 export type IconName = keyof typeof Icons;
-export type IconColor = keyof typeof COLORS;
 export const iconNames = Object.keys(Icons) as IconName[];

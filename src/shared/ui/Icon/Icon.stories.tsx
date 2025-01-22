@@ -1,8 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
+import { COLORS } from '@/shared/lib/colors';
+
 import { Icon } from './Icon';
 
-import { iconNames, COLORS } from '../assets';
+import { iconNames } from '../assets';
 
 const meta = {
   title: 'components/common/Icon',

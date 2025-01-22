@@ -1,4 +1,6 @@
-import { COLORS, IconColor, IconName, Icons } from '../assets';
+import { COLORS, IconColor } from '@/shared/lib/colors';
+
+import { IconName, Icons } from '../assets';
 
 type Props = {
   /**
