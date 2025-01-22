@@ -1,7 +1,9 @@
 import React from 'react';
 import { cva } from 'class-variance-authority';
 
-import { cn } from '@/shared/utils/core';
+import { cn } from '@/shared/lib/core';
+
+import { Icon } from '../Icon';
 
 type VariantColorMap = {
   primary: 'red' | 'blue';
@@ -76,6 +78,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps<ButtonVari
         {...props}
         ref={ref}
       >
+        {isLoading && <Icon name="loading" className="-ml-1 mr-1.5 animate-spin" />}
         {children}
       </button>
     );

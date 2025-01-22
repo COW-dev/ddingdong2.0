@@ -44,10 +44,11 @@ const meta: Meta<ButtonProps<Variant>> = {
         type: 'boolean',
       },
     },
-  },
-  parameters: {
-    controls: {
-      expanded: true,
+    children: {
+      description: 'Button의 내용을 설정합니다.',
+      table: {
+        type: { summary: 'ReactNode' },
+      },
     },
   },
   decorators: [
