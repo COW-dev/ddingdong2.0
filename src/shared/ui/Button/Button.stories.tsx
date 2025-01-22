@@ -1,6 +1,6 @@
 import type { Meta, StoryObj, StoryContext } from '@storybook/react';
 
-import Button, { ButtonProps, ButtonVariant as Variant } from './Button';
+import { Button, ButtonProps, ButtonVariant as Variant } from './Button';
 
 const allowedColors: Record<
   ButtonProps<Variant>['variant'],
@@ -85,7 +85,6 @@ export const Secondary: Story = {
 export const Tertiary: Story = {
   args: {
     variant: 'tertiary',
-    color: 'blue',
     children: 'TertiaryButton',
   },
 };

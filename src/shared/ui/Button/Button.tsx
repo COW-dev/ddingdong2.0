@@ -57,7 +57,7 @@ export const ButtonVariants = cva(
   }
 );
 
-export default function Button<V extends ButtonVariant>({
+export function Button<V extends ButtonVariant>({
   children,
   variant,
   color,
