@@ -4,10 +4,10 @@ import { motion } from 'framer-motion';
 
 import { TabsContext } from './Tabs.context';
 
-type Props = React.HTMLAttributes<HTMLDivElement> & {
+type Props = {
   children: React.ReactNode;
   defaultIndex?: number;
-};
+} & React.HTMLAttributes<HTMLDivElement>;
 
 export function TabsRoot({ children, defaultIndex = 0, ...props }: Props) {
   const labels = useMemo(
