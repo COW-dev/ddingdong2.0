@@ -1,33 +1,44 @@
 import { Meta, Typeset } from '@storybook/blocks';
 
+export const typographyStyles = {
+  Title1: 'md:text-4xl text-2xl font-bold',
+  Title2: 'md:text-3xl text-xl font-bold',
+  Title3: 'md:text-2xl text-xl font-bold',
+  Title4: 'md:text-xl text-lg font-semibold',
+  Subtitle1: 'md:text-xl text-lg font-semibold',
+  Subtitle2: 'md:text-lg text-base font-semibold',
+  Subtitle3: 'md:text-base text-base font-semibold',
+  Body1: 'md:text-xl text-lg font-medium',
+  Body2: 'md:text-lg text-base font-medium',
+  Body3: 'md:text-base text-base font-medium',
+  Caption1: 'md:text-base text-base font-normal',
+  Caption2: 'md:text-sm text-sm font-normal',
+  ButtonTitle1: 'md:text-xl text-base font-bold',
+  ButtonTitle2: 'md:text-base text-base font-bold',
+};
+
 <Meta title="components/common/Typography" name="Typography UI Docs" />
 
 # Typography
 
-## Headings
+## Titles
 
 <Typeset
-  fontSizes={['32px']}
+  fontSizes={['32px', '24px']}
   fontWeight="700"
-  sampleText={`Title1: 명지대학교의 모든 동아리, 띵동에서 확인해 보세요!`}
+  sampleText="Title1: 명지대학교의 모든 동아리, 띵동에서 확인해 보세요!"
   fontFamily="Pretendard"
 />
 <Typeset
-  fontSizes={['28px']}
+  fontSizes={['28px', '20px']}
   fontWeight="700"
-  sampleText={`Title2: 명지대학교의 모든 동아리, 띵동에서 확인해 보세요!`}
+  sampleText="Title2: 명지대학교의 모든 동아리, 띵동에서 확인해 보세요!"
   fontFamily="Pretendard"
 />
 <Typeset
-  fontSizes={['24px']}
+  fontSizes={['24px', '20px']}
   fontWeight="700"
-  sampleText={`Title3: 명지대학교의 모든 동아리, 띵동에서 확인해 보세요!`}
-  fontFamily="Pretendard"
-/>
-<Typeset
-  fontSizes={['22px']}
-  fontWeight="700"
-  sampleText={`Subtitle1: 명지대학교의 모든 동아리, 띵동에서 확인해 보세요!`}
+  sampleText="Title3: 명지대학교의 모든 동아리, 띵동에서 확인해 보세요!"
   fontFamily="Pretendard"
 />
 
@@ -36,15 +47,22 @@ import { Meta, Typeset } from '@storybook/blocks';
 ## Subtitles
 
 <Typeset
-  fontSizes={['20px']}
+  fontSizes={['22px', '16px']}
+  fontWeight="700"
+  sampleText="Subtitle1: 명지대학교의 모든 동아리, 띵동에서 확인해 보세요!"
+  fontFamily="Pretendard"
+/>
+
+<Typeset
+  fontSizes={['20px', '18px']}
   fontWeight="600"
-  sampleText={`Subtitle2: 명지대학교의 모든 동아리, 띵동에서 확인해 보세요!`}
+  sampleText="Subtitle2: 명지대학교의 모든 동아리, 띵동에서 확인해 보세요!"
   fontFamily="Pretendard"
 />
 <Typeset
   fontSizes={['18px']}
   fontWeight="600"
-  sampleText={`Subtitle3: 명지대학교의 모든 동아리, 띵동에서 확인해 보세요!`}
+  sampleText="Subtitle3: 명지대학교의 모든 동아리, 띵동에서 확인해 보세요!"
   fontFamily="Pretendard"
 />
 
@@ -53,21 +71,21 @@ import { Meta, Typeset } from '@storybook/blocks';
 ## Body Text
 
 <Typeset
-  fontSizes={['16px']}
+  fontSizes={['18px', '16px']}
   fontWeight="500"
-  sampleText={`Body1: 명지대학교의 모든 동아리, 띵동에서 확인해 보세요!`}
+  sampleText="Body1: 명지대학교의 모든 동아리, 띵동에서 확인해 보세요!"
+  fontFamily="Pretendard"
+/>
+<Typeset
+  fontSizes={['16px', '14px']}
+  fontWeight="500"
+  sampleText="Body2: 명지대학교의 모든 동아리, 띵동에서 확인해 보세요!"
   fontFamily="Pretendard"
 />
 <Typeset
   fontSizes={['14px']}
   fontWeight="500"
-  sampleText={`Body2: 명지대학교의 모든 동아리, 띵동에서 확인해 보세요!`}
-  fontFamily="Pretendard"
-/>
-<Typeset
-  fontSizes={['12px']}
-  fontWeight="500"
-  sampleText={`Body3: 명지대학교의 모든 동아리, 띵동에서 확인해 보세요!`}
+  sampleText="Body3: 명지대학교의 모든 동아리, 띵동에서 확인해 보세요!"
   fontFamily="Pretendard"
 />
 
@@ -76,15 +94,15 @@ import { Meta, Typeset } from '@storybook/blocks';
 ## Captions
 
 <Typeset
-  fontSizes={['10px']}
+  fontSizes={['14px']}
   fontWeight="400"
-  sampleText={`Caption1: 명지대학교의 모든 동아리, 띵동에서 확인해 보세요!`}
+  sampleText="Caption1: 명지대학교의 모든 동아리, 띵동에서 확인해 보세요!"
   fontFamily="Pretendard"
 />
 <Typeset
-  fontSizes={['8px']}
+  fontSizes={['12px']}
   fontWeight="400"
-  sampleText={`Caption2: 명지대학교의 모든 동아리, 띵동에서 확인해 보세요!`}
+  sampleText="Caption2: 명지대학교의 모든 동아리, 띵동에서 확인해 보세요!"
   fontFamily="Pretendard"
 />
 
@@ -93,14 +111,14 @@ import { Meta, Typeset } from '@storybook/blocks';
 ## Buttons
 
 <Typeset
-  fontSizes={['18px']}
+  fontSizes={['18px', '14px']}
   fontWeight="700"
-  sampleText={`ButtonTitle1: 명지대학교의 모든 동아리, 띵동에서 확인해 보세요!`}
+  sampleText="ButtonTitle1: 명지대학교의 모든 동아리, 띵동에서 확인해 보세요!"
   fontFamily="Pretendard"
 />
 <Typeset
   fontSizes={['14px']}
   fontWeight="700"
-  sampleText={`ButtonTitle2: 명지대학교의 모든 동아리, 띵동에서 확인해 보세요!`}
+  sampleText="ButtonTitle2: 명지대학교의 모든 동아리, 띵동에서 확인해 보세요!"
   fontFamily="Pretendard"
 />
