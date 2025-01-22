@@ -1,6 +1,27 @@
+import { ComponentPropsWithoutRef } from 'react';
 import { cva } from 'class-variance-authority';
 
-import { TypographyVariant, Props } from './Typography.types';
+export type TypographyVariant =
+  | 'Title1'
+  | 'Title2'
+  | 'Title3'
+  | 'Title4'
+  | 'Subtitle1'
+  | 'Subtitle2'
+  | 'Subtitle3'
+  | 'Body1'
+  | 'Body2'
+  | 'Body3'
+  | 'Caption1'
+  | 'Caption2'
+  | 'ButtonTitle1'
+  | 'ButtonTitle2';
+
+export type Props = {
+  weight?: 'light' | 'normal' | 'medium' | 'semibold' | 'bold';
+  variant: TypographyVariant;
+  className?: string;
+} & ComponentPropsWithoutRef<'p'>;
 
 export const variantClasses = cva('whitespace-pre-wrap', {
   variants: {
@@ -15,14 +36,14 @@ export const variantClasses = cva('whitespace-pre-wrap', {
       Body1: 'text-xl font-medium',
       Body2: 'text-lg font-medium',
       Body3: 'text-base font-medium',
-      Caption1: 'text-base font-regular',
-      Caption2: 'text-sm font-regular',
+      Caption1: 'text-base font-normal',
+      Caption2: 'text-sm font-normal',
       ButtonTitle1: 'text-xl font-bold',
       ButtonTitle2: 'text-base font-bold',
     },
     weight: {
       light: 'font-light',
-      regular: 'font-regular',
+      normal: 'font-normal',
       medium: 'font-medium',
       semibold: 'font-semibold',
       bold: 'font-bold',
@@ -42,7 +63,7 @@ export function Typography({
   ...props
 }: Props) {
   const baseClasses = variantClasses({ type: variant, weight });
-  const combinedClasses = [baseClasses, className].filter(Boolean).join(' ');
+  const combinedClasses = `${baseClasses}${className ? ` ${className}` : ''}`;
 
   return (
     <p className={combinedClasses} {...props}>
