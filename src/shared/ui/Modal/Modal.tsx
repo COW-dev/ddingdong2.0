@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Title1, ButtonTitle1 } from '@/shared/ui/Typography/Typography';
 
-import ModalPortal from './ModalPortal';
+import ModalPortal from '../Portal/Portal';
 
 type ModalProps = {
   isOpen: boolean;
