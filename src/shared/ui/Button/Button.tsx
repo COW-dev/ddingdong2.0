@@ -72,6 +72,7 @@ export function Button<V extends ButtonVariant>({
 
   return (
     <button
+      type="button"
       className={cn(
         ButtonVariants({ variant, color }),
         isDisabled && `cursor-not-allowed ${tertiaryClasses}`,
