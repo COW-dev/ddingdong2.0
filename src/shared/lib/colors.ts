@@ -36,8 +36,16 @@ export const colors = {
   indigo: '#6366f1',
   white: '#ffffff',
   black: '#000000',
-  current: 'currentColor',
+};
+
+export const COLORS = {
+  primary: colors['primary'][300],
+  gray: colors['gray'][300],
+  red: colors['red'][300],
+  green: colors['green'][300],
+  black: colors['black'],
 };
 
 export type Colors = keyof typeof colors;
+export type IconColor = keyof typeof COLORS;
 export const colorNames = Object.keys(colors) as Colors[];
