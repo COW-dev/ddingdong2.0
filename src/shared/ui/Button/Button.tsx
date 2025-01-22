@@ -1,4 +1,3 @@
-import React from 'react';
 import { cva } from 'class-variance-authority';
 
 import { cn } from '@/shared/lib/core';
@@ -58,29 +57,32 @@ export const ButtonVariants = cva(
   }
 );
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps<ButtonVariant>>(
-  function Button(
-    { children, variant, color, rounded, isLoading, disabled, className, ...props },
-    ref
-  ) {
-    const isDisabled = isLoading || disabled;
-    const tertiaryClasses = ButtonVariants({ variant: 'tertiary' });
+export default function Button<V extends ButtonVariant>({
+  children,
+  variant,
+  color,
+  rounded,
+  isLoading,
+  disabled,
+  className,
+  ...props
+}: ButtonProps<V>) {
+  const isDisabled = isLoading || disabled;
+  const tertiaryClasses = ButtonVariants({ variant: 'tertiary' });
 
-    return (
-      <button
-        className={cn(
-          ButtonVariants({ variant, color }),
-          isDisabled && `cursor-not-allowed ${tertiaryClasses}`,
-          rounded && 'rounded-full md:rounded-full',
-          className
-        )}
-        disabled={isDisabled}
-        {...props}
-        ref={ref}
-      >
-        {isLoading && <Icon name="loading" className="-ml-1 mr-1.5 animate-spin" />}
-        {children}
-      </button>
-    );
-  }
-);
+  return (
+    <button
+      className={cn(
+        ButtonVariants({ variant, color }),
+        isDisabled && `cursor-not-allowed ${tertiaryClasses}`,
+        rounded && 'rounded-full md:rounded-full',
+        className
+      )}
+      disabled={isDisabled}
+      {...props}
+    >
+      {isLoading && <Icon name="loading" className="-ml-1 mr-1.5 animate-spin" />}
+      {children}
+    </button>
+  );
+}
