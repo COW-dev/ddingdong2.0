@@ -13,10 +13,10 @@ export function TabsNav() {
         <button
           key={index}
           onClick={() => setActiveLabel(label)}
-          className={`grow p-3 font-semibold w-1/${labels.length} ${
+          className={`grow border-b-2 border-primary-300 p-3 font-semibold w-1/${labels.length} ${
             activeLabel === label
-              ? 'border-primary-300 text-primary-300 hover:bg-primary-50 border-b-2'
-              : 'text-gray-500 hover:bg-gray-50'
+              ? 'text-primary-300 hover:bg-primary-50'
+              : 'border-opacity-0 text-gray-500 hover:bg-gray-50'
           } md:p-4 md:text-xl`}
         >
           {label}
