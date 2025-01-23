@@ -8,7 +8,7 @@ import ModalPortal from '../Portal/Portal';
 type ModalProps = {
   isOpen: boolean;
   closeModal: () => void;
-  modalRef: React.RefObject<HTMLDivElement> | null;
+  modalRef: React.RefObject<HTMLDivElement>;
   children: React.ReactNode;
 };
 
