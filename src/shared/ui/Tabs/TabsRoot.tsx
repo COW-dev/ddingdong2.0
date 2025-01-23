@@ -5,7 +5,13 @@ import { motion } from 'framer-motion';
 import { TabsContext } from './Tabs.context';
 
 type Props = {
+  /**
+   * children elements of the Tabs
+   */
   children: React.ReactNode;
+  /**
+   * default focusing tabsItem index.
+   */
   defaultIndex?: number;
 } & React.HTMLAttributes<HTMLDivElement>;
 

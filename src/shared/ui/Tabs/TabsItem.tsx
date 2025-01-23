@@ -2,10 +2,16 @@ import { useContext } from 'react';
 
 import { TabsContext } from './Tabs.context';
 
-type Props = React.HTMLAttributes<HTMLDivElement> & {
+type Props = {
+  /**
+   * tab name to be displayed.
+   */
   label: string;
+  /**
+   * if activated, exposed element.
+   */
   children: React.ReactNode;
-};
+} & React.HTMLAttributes<HTMLDivElement>;
 
 export function TabsItem({ label, children, ...props }: Props) {
   const content = useContext(TabsContext);
