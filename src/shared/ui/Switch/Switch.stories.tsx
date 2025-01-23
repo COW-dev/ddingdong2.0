@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { COLORS } from '@/shared/lib/colors';
 
-import Switch from './Switch';
+import { Switch } from '.';
 
 const meta = {
   title: 'components/common/Switch',
@@ -15,7 +15,7 @@ type Story = StoryObj<typeof Switch>;
 
 export const Basic: Story = {
   args: {
-    color: 'gray',
+    color: 'primary',
   },
   argTypes: {
     color: {
