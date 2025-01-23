@@ -1,17 +1,14 @@
 import type { Meta, StoryObj, StoryContext } from '@storybook/react';
 
-import { Button, ButtonProps, ButtonVariant as Variant } from './Button';
+import { Button, Props, ButtonVariant as Variant } from './Button';
 
-const allowedColors: Record<
-  ButtonProps<Variant>['variant'],
-  Array<ButtonProps<Variant>['color']>
-> = {
+const allowedColors: Record<Props<Variant>['variant'], Array<Props<Variant>['color']>> = {
   primary: ['blue', 'red'],
   secondary: ['blue', 'red', 'green'],
   tertiary: [],
 };
 
-const meta: Meta<ButtonProps<Variant>> = {
+const meta: Meta<Props<Variant>> = {
   title: 'components/common/Button',
   component: Button,
   tags: ['autodocs'],
@@ -52,7 +49,7 @@ const meta: Meta<ButtonProps<Variant>> = {
     },
   },
   decorators: [
-    (Story, context: StoryContext<ButtonProps<Variant>>) => {
+    (Story, context: StoryContext<Props<Variant>>) => {
       const { args } = context;
 
       if (context.argTypes.color)
@@ -64,7 +61,7 @@ const meta: Meta<ButtonProps<Variant>> = {
 };
 
 export default meta;
-type Story = StoryObj<ButtonProps<Variant>>;
+type Story = StoryObj<Props<Variant>>;
 
 export const Primary: Story = {
   args: {

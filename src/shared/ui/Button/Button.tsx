@@ -13,10 +13,22 @@ type VariantColorMap = {
 export type ButtonVariant = keyof VariantColorMap;
 type ButtonColor<V extends ButtonVariant> = VariantColorMap[V];
 
-export type ButtonProps<V extends keyof VariantColorMap> = {
+export type Props<V extends keyof VariantColorMap> = {
+  /**
+   * variant of the Button.
+   */
   variant: V;
+  /**
+   * color of the Button.
+   */
   color?: ButtonColor<V>;
+  /**
+   * loading state of the Button
+   */
   isLoading?: boolean;
+  /**
+   * border-radius option of the Button
+   */
   rounded?: boolean;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
@@ -50,10 +62,6 @@ export const ButtonVariants = cva(
         class: 'text-green-200 bg-green-50 hover:bg-green-100',
       },
     ],
-    defaultVariants: {
-      variant: 'primary',
-      color: 'blue',
-    },
   }
 );
 
@@ -61,12 +69,12 @@ export function Button<V extends ButtonVariant>({
   children,
   variant,
   color,
-  rounded,
-  isLoading,
+  rounded = false,
+  isLoading = false,
   disabled,
   className,
   ...props
-}: ButtonProps<V>) {
+}: Props<V>) {
   const isDisabled = isLoading || disabled;
   const tertiaryClasses = ButtonVariants({ variant: 'tertiary' });
 

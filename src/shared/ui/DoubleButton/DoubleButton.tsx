@@ -2,11 +2,11 @@ import React, { ReactNode } from 'react';
 
 export type Props = {
   /**
-   * left child of the of the DoubleButton
+   * left child of the DoubleButton
    */
   left: ReactNode;
   /**
-   * right child of the of the DoubleButton
+   * right child of the DoubleButton
    */
   right: ReactNode;
 } & React.HTMLAttributes<HTMLDivElement>;
