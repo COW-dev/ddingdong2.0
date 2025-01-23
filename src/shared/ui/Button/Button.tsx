@@ -21,13 +21,13 @@ export type ButtonProps<V extends keyof VariantColorMap> = {
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const ButtonVariants = cva(
-  `flex justify-center items-center text-sm font-bold py-2.5 px-3 rounded-[10px] md:rounded-xl md:p-4 md:text-lg`,
+  `flex justify-center items-center text-sm font-bold  rounded-[10px] py-2.5 md:py-4 md:rounded-xl  md:text-lg`,
   {
     variants: {
       variant: {
-        primary: 'text-white',
-        secondary: '',
-        tertiary: 'text-gray-400 bg-gray-100 hover:bg-gray-200',
+        primary: 'text-white px-10 md:px-[60px]',
+        secondary: 'px-5 md:px-7',
+        tertiary: 'text-gray-400 bg-gray-100 hover:bg-gray-200  px-3 md:px-4',
       },
       color: {
         blue: '',
