@@ -33,7 +33,7 @@ export type Props<V extends keyof VariantColorMap> = {
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const ButtonVariants = cva(
-  `flex justify-center items-center text-sm font-bold  rounded-[10px] py-2.5 md:py-4 md:rounded-xl  md:text-lg`,
+  `flex justify-center items-center text-sm font-bold py-2.5 md:py-4 md:text-lg`,
   {
     variants: {
       variant: {
@@ -84,7 +84,7 @@ export function Button<V extends ButtonVariant>({
       className={cn(
         ButtonVariants({ variant, color }),
         isDisabled && `cursor-not-allowed ${tertiaryClasses}`,
-        rounded && 'rounded-full md:rounded-full',
+        rounded ? 'rounded-full' : 'rounded-[10px] md:rounded-xl',
         className
       )}
       disabled={isDisabled}
