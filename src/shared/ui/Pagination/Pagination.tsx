@@ -39,8 +39,10 @@ function PaginationItem({ page, isActive, onClick }: PaginationItemProps) {
   return (
     <button
       onClickCapture={onClick}
-      className={`size-10 rounded px-3 py-1 hover:bg-gray-100 ${
-        isActive && 'shadow-sm outline outline-1 -outline-offset-1 outline-gray-200'
+      className={`size-9 rounded px-3 py-1 font-semibold ${
+        isActive
+          ? 'bg-primary-100 text-primary-300 shadow-sm outline-gray-200'
+          : 'hover:bg-gray-100'
       }`}
     >
       {page}
@@ -82,7 +84,7 @@ export function Pagination({ currentPage, totalPages, onPageChange, className = 
         <Icon
           name="arrowLeft"
           size={30}
-          className="size-10 rounded-md px-3 py-1 hover:bg-gray-100"
+          className="size-9 rounded-md px-2 py-1 hover:bg-gray-100"
           onClickCapture={handlePrevious}
         />
       )}
@@ -100,7 +102,7 @@ export function Pagination({ currentPage, totalPages, onPageChange, className = 
         <Icon
           name="arrowRight"
           size={35}
-          className="size-10 rounded-md px-3 py-1 hover:bg-gray-100"
+          className="size-9 rounded-md px-2 py-1 hover:bg-gray-100"
           onClickCapture={handleNext}
         />
       )}
