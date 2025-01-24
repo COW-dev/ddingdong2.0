@@ -1,5 +1,7 @@
 import Add from './add.svg';
 import ArrowDown from './arrow-down.svg';
+import ArrowLeft from './arrow-left.svg';
+import ArrowRight from './arrow-right.svg';
 import ArrowUp from './arrow-up.svg';
 import Check from './check.svg';
 import Close from './close.svg';
@@ -17,6 +19,8 @@ export const Icons = {
   add: Add,
   arrowDown: ArrowDown,
   arrowUp: ArrowUp,
+  arrowLeft: ArrowLeft,
+  arrowRight: ArrowRight,
   check: Check,
   close: Close,
   download: DownLoad,
