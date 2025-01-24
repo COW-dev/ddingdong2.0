@@ -81,7 +81,7 @@ export function Pagination({ currentPage, totalPages, onPageChange, className = 
       {totalPages >= 3 && currentPage > 1 && (
         <Icon
           name="arrowLeft"
-          size={30}
+          size={35}
           className="size-9 rounded-md px-2 py-1 hover:bg-gray-100"
           onClickCapture={handlePrevious}
         />
