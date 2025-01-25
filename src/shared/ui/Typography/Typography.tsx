@@ -19,7 +19,6 @@ export type TypographyVariant =
   | 'ButtonTitle2';
 
 export type Props = {
-  weight?: 'light' | 'normal' | 'medium' | 'semibold' | 'bold';
   variant: TypographyVariant;
   className?: string;
 } & ComponentPropsWithoutRef<'p'>;
