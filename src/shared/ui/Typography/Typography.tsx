@@ -1,5 +1,6 @@
 import { ComponentPropsWithoutRef } from 'react';
 import { cva } from 'class-variance-authority';
+import cn from 'classnames';
 
 export type TypographyVariant =
   | 'Title1'
@@ -23,7 +24,7 @@ export type Props = {
   className?: string;
 } & ComponentPropsWithoutRef<'p'>;
 
-export const variantClasses = cva('whitespace-pre-wrap', {
+const variantClasses = cva('whitespace-pre-wrap', {
   variants: {
     type: {
       Title1: 'md:text-4xl text-2xl font-bold',
@@ -41,32 +42,15 @@ export const variantClasses = cva('whitespace-pre-wrap', {
       ButtonTitle1: 'md:text-xl text-base font-bold',
       ButtonTitle2: 'md:text-base text-base font-bold',
     },
-    weight: {
-      light: 'font-light',
-      normal: 'font-normal',
-      medium: 'font-medium',
-      semibold: 'font-semibold',
-      bold: 'font-bold',
-    },
   },
   defaultVariants: {
     type: 'Body1',
-    weight: 'medium',
   },
 });
 
-export function Typography({
-  children,
-  weight = 'medium',
-  variant = 'Body1',
-  className = '',
-  ...props
-}: Props) {
-  const baseClasses = variantClasses({ type: variant, weight });
-  const combinedClasses = `${baseClasses}${className ? ` ${className}` : ''}`;
-
+export function Typography({ children, variant = 'Body1', className = '', ...props }: Props) {
   return (
-    <p className={combinedClasses} {...props}>
+    <p className={cn(variantClasses({ type: variant }), className)} {...props}>
       {children}
     </p>
   );
@@ -78,7 +62,7 @@ function createTypography(variant: TypographyVariant) {
   function Component(props: Omit<Props, 'variant'>) {
     return <Typography variant={variant} {...props} />;
   }
-  Component.displayName = `${variant}`;
+  Component.displayName = `Typography${variant}`;
   return Component;
 }
 
