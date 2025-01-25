@@ -29,12 +29,10 @@ export const Basic: StoryObj<typeof Modal> = {
 
     const openModal = (e) => {
       e.stopPropagation();
-      console.log('Opening modal...');
       setIsOpen(true);
     };
 
     const closeModal = () => {
-      console.log('Closing modal...');
       setIsOpen(false);
     };
 

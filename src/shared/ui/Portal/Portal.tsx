@@ -9,6 +9,6 @@ export default function Portal({ children }: PortalProps) {
     return null;
   }
 
-  const Container = document.getElementById('portal-root') as HTMLElement;
+  const Container = document.body as HTMLElement;
   return ReactDom.createPortal(children, Container);
 }
