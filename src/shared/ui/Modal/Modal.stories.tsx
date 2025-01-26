@@ -6,20 +6,6 @@ import Modal from './Modal';
 export default {
   title: 'components/common/Modal',
   component: Modal,
-  argTypes: {
-    showCloseButton: {
-      control: 'boolean',
-      defaultValue: true,
-    },
-    width: {
-      control: { type: 'range', min: 300, max: 1000 },
-      defaultValue: 500,
-    },
-    backgroundColor: {
-      control: 'color',
-      defaultValue: '#FFFFFF',
-    },
-  },
 } as Meta<typeof Modal>;
 
 export const Basic: StoryObj<typeof Modal> = {
@@ -37,55 +23,21 @@ export const Basic: StoryObj<typeof Modal> = {
     };
 
     return (
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          height: '100vh',
-        }}
-      >
+      <div>
         <button
+          className="rounded-md bg-primary-300 p-3 font-semibold text-white"
           onClick={openModal}
-          style={{
-            backgroundColor: '#b0bec5',
-            color: 'white',
-            padding: '6px 12px',
-            border: '1px solid white',
-            borderRadius: '4px',
-          }}
         >
           모달이 열립니다
         </button>
 
         {isOpen && (
           <Modal isOpen={isOpen} closeModal={closeModal} modalRef={modalRef} {...args}>
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                padding: '25px',
-                borderRadius: '8px',
-                width: 'auto',
-                textAlign: 'center',
-              }}
-            >
-              <div style={{ marginBottom: '35px' }}>dding-dong 모달입니다</div>
+            <div className="flex flex-col items-center gap-4 rounded-lg bg-white p-6">
+              <div className="p-2 text-2xl font-semibold">dding-dong 모달입니다</div>
               <button
                 onClick={closeModal}
-                style={{
-                  backgroundColor: '#b0bec5',
-                  color: 'white',
-                  fontSize: '16px',
-                  padding: '2px 25px',
-                  border: 'none',
-                  borderRadius: '5px',
-                  cursor: 'pointer',
-                  outline: 'none',
-                }}
+                className="rounded-lg bg-red-200 px-4 py-2 font-bold text-white"
               >
                 모달닫기
               </button>
@@ -94,10 +46,5 @@ export const Basic: StoryObj<typeof Modal> = {
         )}
       </div>
     );
-  },
-  args: {
-    showCloseButton: true,
-    width: 500,
-    backgroundColor: '#FFFFFF',
   },
 };
