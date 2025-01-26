@@ -1,6 +1,7 @@
 import { ComponentPropsWithoutRef } from 'react';
 import { cva } from 'class-variance-authority';
-import cn from 'classnames';
+
+import { cn } from '@/shared/lib/core';
 
 export type TypographyVariant =
   | 'Title1'
@@ -55,13 +56,10 @@ export function Typography({ children, variant = 'Body1', className = '', ...pro
   );
 }
 
-Typography.displayName = 'Typography';
-
 function createTypography(variant: TypographyVariant) {
   function Component(props: Omit<Props, 'variant'>) {
     return <Typography variant={variant} {...props} />;
   }
-  Component.displayName = `Typography${variant}`;
   return Component;
 }
 
