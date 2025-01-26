@@ -12,4 +12,4 @@ export {
   Subtitle3,
   ButtonTitle1,
   ButtonTitle2,
-} from './Typhgraphy';
+} from './Typography';
