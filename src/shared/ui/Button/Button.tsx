@@ -39,7 +39,7 @@ export const ButtonVariants = cva(
       variant: {
         primary: 'text-white px-10 md:px-[60px]',
         secondary: 'px-5 md:px-7',
-        tertiary: 'text-gray-400 bg-gray-100 hover:bg-gray-200  px-3 md:px-4',
+        tertiary: 'text-gray-400 bg-gray-100 hover:bg-gray-200 px-3 md:px-4',
       },
       color: {
         blue: '',
@@ -76,21 +76,22 @@ export function Button<V extends ButtonVariant>({
   ...props
 }: Props<V>) {
   const isDisabled = isLoading || disabled;
-  const tertiaryClasses = ButtonVariants({ variant: 'tertiary' });
 
   return (
     <button
       type="button"
       className={cn(
         ButtonVariants({ variant, color }),
-        isDisabled && `cursor-not-allowed ${tertiaryClasses}`,
+        isDisabled && `cursor-not-allowed bg-gray-100 text-gray-400 hover:bg-gray-100`,
         rounded ? 'rounded-full' : 'rounded-[10px] md:rounded-xl',
         className
       )}
       disabled={isDisabled}
       {...props}
     >
-      {isLoading && <Icon name="loading" className="-ml-1 mr-1.5 animate-spin" />}
+      {isLoading && (
+        <Icon name="loading" size={25} className="-ml-1 mr-1.5 animate-spin max-md:h-[20px]" />
+      )}
       {children}
     </button>
   );
