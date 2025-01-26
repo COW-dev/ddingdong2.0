@@ -3,7 +3,6 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 
 import { Icon } from '../Icon';
-import { Title1 } from '../Typography/Typography';
 
 type NavbarProps = {
   title: string;
@@ -18,7 +17,7 @@ export default function Navbar({ title }: NavbarProps) {
       onClick={() => router.back()}
     >
       <Icon name="arrowLeft" />
-      <Title1 className="text-gray-400">{title}</Title1>
+      <p className="text-gray-5s00 text-xl font-bold">{title}</p>
     </button>
   );
 }
