@@ -1,6 +1,5 @@
 import Add from './add.svg';
 import ArrowDown from './arrow-down.svg';
-import ArrowLeft from './arrow-left.svg';
 import ArrowUp from './arrow-up.svg';
 import Check from './check.svg';
 import Close from './close.svg';
@@ -8,6 +7,7 @@ import DownLoad from './download.svg';
 import Etc from './etc.svg';
 import Insta from './instagram.svg';
 import List from './list.svg';
+import NavbarArrow from './navbar-arrow.svg';
 import New from './new.svg';
 import Pin from './pin.svg';
 import Trash from './trash.svg';
@@ -23,11 +23,11 @@ export const Icons = {
   download: DownLoad,
   etc: Etc,
   list: List,
+  navbarArrow: NavbarArrow,
   new: New,
   pin: Pin,
   trash: Trash,
   write: Write,
-  arrowLeft: ArrowLeft,
 
   instagram: Insta,
   youtube: Youtube,
