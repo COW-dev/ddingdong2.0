@@ -13,11 +13,11 @@ export default function Navbar({ title }: NavbarProps) {
 
   return (
     <button
-      className="flex cursor-pointer flex-row items-center gap-4"
+      className="flex cursor-pointer flex-row items-center gap-2 align-middle"
       onClick={() => router.back()}
     >
-      <Icon name="arrowLeft" />
-      <p className="text-gray-5s00 text-xl font-bold">{title}</p>
+      <Icon name="navbarArrow" />
+      <p className="text-2xl font-bold text-gray-600">{title}</p>
     </button>
   );
 }
