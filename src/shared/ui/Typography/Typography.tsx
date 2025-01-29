@@ -3,7 +3,7 @@ import { cva } from 'class-variance-authority';
 
 import { cn } from '@/shared/lib/core';
 
-export type TypographyVariant =
+type TypographyVariant =
   | 'Title1'
   | 'Title2'
   | 'Title3'
@@ -19,7 +19,7 @@ export type TypographyVariant =
   | 'ButtonTitle1'
   | 'ButtonTitle2';
 
-export type Props = {
+type Props = {
   variant: TypographyVariant;
   className?: string;
 } & ComponentPropsWithoutRef<'p'>;
@@ -48,7 +48,7 @@ const variantClasses = cva('whitespace-pre-wrap', {
   },
 });
 
-export function Typography({ children, variant = 'Body1', className = '', ...props }: Props) {
+function Typography({ children, variant = 'Body1', className = '', ...props }: Props) {
   return (
     <p className={cn(variantClasses({ type: variant }), className)} {...props}>
       {children}
