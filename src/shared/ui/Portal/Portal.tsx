@@ -1,10 +1,10 @@
 import ReactDom from 'react-dom';
 
-type PortalProps = {
+type Props = {
   children: React.ReactNode;
 };
 
-export default function Portal({ children }: PortalProps) {
+export default function Portal({ children }: Props) {
   if (typeof window === 'undefined') {
     return null;
   }

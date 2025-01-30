@@ -5,14 +5,14 @@ import useOutsideClick from './useOutsideClick';
 
 import ModalPortal from '../Portal/Portal';
 
-type ModalProps = {
+type Props = {
   isOpen: boolean;
   closeModal: () => void;
   modalRef: React.RefObject<HTMLDivElement>;
   children: React.ReactNode;
 };
 
-export default function Modal({ isOpen, closeModal, modalRef, children }: ModalProps) {
+export function Modal({ isOpen, closeModal, modalRef, children }: Props) {
   useOutsideClick(modalRef, closeModal);
 
   return (

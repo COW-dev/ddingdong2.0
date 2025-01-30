@@ -13,7 +13,7 @@ export const Basic: StoryObj<typeof Modal> = {
     const [isOpen, setIsOpen] = useState(false);
     const modalRef = useRef<HTMLDivElement>(null);
 
-    const openModal = (e) => {
+    const openModal = (e: React.MouseEvent<HTMLButtonElement>) => {
       e.stopPropagation();
       setIsOpen(true);
     };
@@ -31,19 +31,17 @@ export const Basic: StoryObj<typeof Modal> = {
           모달이 열립니다
         </button>
 
-        {isOpen && (
-          <Modal isOpen={isOpen} closeModal={closeModal} modalRef={modalRef} {...args}>
-            <div className="flex flex-col items-center gap-4 rounded-lg bg-white p-6">
-              <div className="p-2 text-2xl font-semibold">dding-dong 모달입니다</div>
-              <button
-                onClick={closeModal}
-                className="rounded-lg bg-red-200 px-4 py-2 font-bold text-white"
-              >
-                모달닫기
-              </button>
-            </div>
-          </Modal>
-        )}
+        <Modal isOpen={isOpen} closeModal={closeModal} {...args}>
+          <div className="flex flex-col items-center gap-4 rounded-lg bg-white p-6">
+            <div className="p-2 text-2xl font-semibold">dding-dong 모달입니다</div>
+            <button
+              onClick={closeModal}
+              className="rounded-lg bg-red-200 px-4 py-2 font-bold text-white"
+            >
+              모달닫기
+            </button>
+          </div>
+        </Modal>
       </div>
     );
   },
