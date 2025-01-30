@@ -1,41 +1,50 @@
-import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 
-import useOutsideClick from './useOutsideClick';
+import { MODAL_MOTION } from '@/shared/constants/motion';
 
-import ModalPortal from '../Portal/Portal';
+import { Portal } from '../Portal';
 
 type Props = {
   isOpen: boolean;
   closeModal: () => void;
-  modalRef: React.RefObject<HTMLDivElement>;
   children: React.ReactNode;
+  mode?: 'wait' | 'sync' | 'popLayout';
 };
 
-export function Modal({ isOpen, closeModal, modalRef, children }: Props) {
-  useOutsideClick(modalRef, closeModal);
+export function Modal({ isOpen, closeModal, children, mode }: Props) {
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
+        closeModal();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen, closeModal]);
 
   return (
-    <ModalPortal>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-30 flex w-full items-center justify-center"
-          >
-            <div
-              ref={modalRef}
-              onClick={(e) => e.stopPropagation()}
-              className="items-center justify-center rounded-lg shadow-lg"
-            >
-              {children}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </ModalPortal>
+    <Portal isOpen={isOpen} mode={mode}>
+      <motion.div
+        {...MODAL_MOTION}
+        className="fixed inset-0 z-30 flex w-full items-center justify-center"
+      >
+        <div
+          ref={modalRef}
+          onClick={(e) => e.stopPropagation()}
+          className="items-center justify-center rounded-lg shadow-lg"
+        >
+          {children}
+        </div>
+      </motion.div>
+    </Portal>
   );
 }
