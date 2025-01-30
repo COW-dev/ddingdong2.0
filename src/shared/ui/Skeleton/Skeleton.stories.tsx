@@ -20,28 +20,14 @@ export default meta;
 type Story = StoryObj<typeof Skeleton>;
 
 export const Basic: Story = {
+  args: { className: 'h-5 w-full' },
   argTypes: {
-    width: {
+    className: {
       control: { type: 'text' },
-      defaultValue: 'auto',
-      table: { type: { summary: 'string | number' } },
-    },
-    height: {
-      control: { type: 'text' },
-      defaultValue: '21px',
-      table: { type: { summary: 'string | number' } },
-    },
-    rounded: {
-      control: { type: 'text' },
-      defaultValue: '6px',
-      table: { type: { summary: 'string | number' } },
+      table: { type: { summary: 'string ' } },
     },
   },
   render: (args) => {
-    const widthValue = Number(args.width) ? `${args.width}px` : args.width;
-    const heightValue = Number(args.height) ? `${args.height}px` : args.height;
-    const roundedValue = Number(args.rounded) ? `${args.rounded}px` : args.rounded;
-
-    return <Skeleton width={widthValue} height={heightValue} rounded={roundedValue} />;
+    return <Skeleton className={args.className} />;
   },
 };
