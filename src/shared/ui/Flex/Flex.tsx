@@ -34,7 +34,6 @@ const WRAP = {
 } as const;
 
 type Props = {
-  // 좀 더 자세히 써봐
   /**
    * Defines the direction of the flex container's main axis.
    * @default row
@@ -68,8 +67,8 @@ type Props = {
 
 export function Flex({
   dir = 'row',
-  items = 'start',
-  justify = 'center',
+  items = 'stretch',
+  justify = 'start',
   wrap = 'nowrap',
   className = '',
   children,
