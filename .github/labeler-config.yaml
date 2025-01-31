@@ -7,7 +7,7 @@ filters:
   - label: bug
     regexs:
       - /bug|BUG/
-    events: [issues]
+    events: [issues, pull_request]
     targets: [title]
   - label: docs
     regexs:
