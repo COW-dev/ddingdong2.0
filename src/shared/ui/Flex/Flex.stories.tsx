@@ -6,6 +6,14 @@ const meta = {
   title: 'components/common/Flex',
   component: Flex,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Flex 컴포넌트는 display: flex를 적용해 정렬과 배치를 간편하게 조정할 수 있는 컨테이너입니다.',
+      },
+    },
+  },
 } satisfies Meta<typeof Flex>;
 
 export default meta;

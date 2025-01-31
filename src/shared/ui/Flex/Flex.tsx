@@ -34,11 +34,35 @@ const WRAP = {
 } as const;
 
 type Props = {
+  // 좀 더 자세히 써봐
+  /**
+   * Defines the direction of the flex container's main axis.
+   * @default row
+   */
   dir?: keyof typeof DIR;
+  /**
+   * Specifies how flex items are aligned along the cross axis.
+   * @default start
+   */
   items?: keyof typeof ALIGN_ITEMS;
+  /**
+   * Defines how flex items are distributed along the main axis.
+   * @default center
+   */
   justify?: keyof typeof JUSTIFY_CONTENT;
+  /**
+   * Controls whether flex items should wrap onto multiple lines.
+   * @default nowrap
+   */
   wrap?: keyof typeof WRAP;
+  /**
+   * Additional CSS classNames to be applied to the container.
+   * @default ''
+   */
   className?: string;
+  /**
+   * The child elements to be rendered inside the Flex container.
+   */
   children: React.ReactNode;
 };
 
@@ -47,8 +71,8 @@ export function Flex({
   items = 'start',
   justify = 'center',
   wrap = 'nowrap',
+  className = '',
   children,
-  className,
   ...props
 }: Props) {
   return (
