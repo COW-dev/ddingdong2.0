@@ -63,7 +63,7 @@ type Props = {
    * The child elements to be rendered inside the Flex container.
    */
   children: React.ReactNode;
-};
+} & React.HTMLAttributes<HTMLDivElement>;
 
 export function Flex({
   dir = 'row',
