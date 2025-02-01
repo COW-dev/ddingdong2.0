@@ -49,10 +49,10 @@ export const Basic: StoryObj<typeof Modal> = {
 
         <Modal {...args} isOpen={isOpen} closeModal={closeModal}>
           <div className="flex flex-col items-center gap-4 rounded-lg bg-white p-6 shadow-sm">
-            <div className="p-2 text-2xl font-semibold">딩동! 모달입니다.</div>
+            <div className="p-2 text-2xl font-semibold">ddingdong 모달입니다.</div>
             <button
               onClick={closeModal}
-              className="rounded-lg bg-red-200 px-4 py-2 font-semibold text-white"
+              className="rounded-md bg-red-200 px-4 py-2 font-semibold text-white"
             >
               모달 닫기
             </button>
