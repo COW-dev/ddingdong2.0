@@ -17,7 +17,7 @@ export default function NavBack({ title }: Props) {
       onClick={() => router.back()}
     >
       <Icon name="navbarArrow" />
-      <p className="text-2xl font-bold text-gray-600">{title}</p>
+      <p className="text-2xl font-bold text-gray-500">{title}</p>
     </button>
   );
 }
