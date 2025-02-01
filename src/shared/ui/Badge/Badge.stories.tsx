@@ -8,7 +8,7 @@ const meta = {
   argTypes: {
     isSubmited: { control: 'radio', options: [true, false, null] },
     isProgress: { control: 'radio', options: [true, false, null] },
-    isRecriting: { control: 'boolean' },
+    isRecruiting: { control: 'boolean' },
     color: { control: 'radio', options: [true, false, undefined] },
     text: { control: 'text' },
   },
@@ -25,7 +25,7 @@ export const Default: StoryObj<typeof Badge> = {
   args: {
     isSubmited: undefined,
     isProgress: undefined,
-    isRecriting: undefined,
+    isRecruiting: undefined,
     color: undefined,
     text: '상태 없음',
   },

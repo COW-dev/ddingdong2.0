@@ -22,7 +22,7 @@ type Props = {
    * - `true`: 모집 중 (green)
    * - `false`: 모집 마감 (gray)
    */
-  isRecriting?: boolean;
+  isRecruiting?: boolean;
 
   /**
    * - `true`: 초록색 (`bg-green-100 text-green-300`)
@@ -44,13 +44,13 @@ type Props = {
 /**
  * `Badge` is a UI element that visually represents various statuses.
  */
-export function Badge({ isSubmited, isProgress, isRecriting, color, text }: Props) {
+export function Badge({ isSubmited, isProgress, isRecruiting, color, text }: Props) {
   let badgeColor = 'bg-gray-100 text-gray-400';
   let badgeText = text ?? '상태 없음';
 
-  if (isRecriting !== undefined) {
-    badgeColor = isRecriting ? 'bg-green-100 text-green-300' : 'bg-gray-100 text-gray-400';
-    badgeText = isRecriting ? '모집 중' : '모집 마감';
+  if (isRecruiting !== undefined) {
+    badgeColor = isRecruiting ? 'bg-green-100 text-green-300' : 'bg-gray-100 text-gray-400';
+    badgeText = isRecruiting ? '모집 중' : '모집 마감';
   } else if (isProgress !== undefined) {
     if (isProgress === null) {
       badgeColor = 'bg-gray-100 text-gray-400';
