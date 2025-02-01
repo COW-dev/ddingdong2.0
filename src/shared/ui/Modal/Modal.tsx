@@ -40,7 +40,7 @@ export function Modal({ isOpen, closeModal, children, mode }: Props) {
         <div
           ref={modalRef}
           onClick={(e) => e.stopPropagation()}
-          className="items-center justify-center rounded-lg shadow-lg"
+          className="items-center justify-center rounded-lg bg-white shadow-[0_3px_10px_rgba(0,0,0,0.05),_0_-3px_10px_rgba(0,0,0,0.03),_3px_0_10px_rgba(0,0,0,0.03),_-3px_0_10px_rgba(0,0,0,0.03)]"
         >
           {children}
         </div>
