@@ -33,7 +33,7 @@ export const Basic: StoryObj<typeof Modal> = {
     isOpen: false,
   },
   render: (args) => {
-    const [isOpen, setIsOpen] = useState(args.isOpen); // args를 상태로 활용
+    const [isOpen, setIsOpen] = useState(args.isOpen);
 
     const openModal = () => setIsOpen(true);
     const closeModal = () => setIsOpen(false);
@@ -50,12 +50,21 @@ export const Basic: StoryObj<typeof Modal> = {
         <Modal {...args} isOpen={isOpen} closeModal={closeModal}>
           <div className="flex flex-col items-center gap-4 rounded-lg bg-white p-6 shadow-sm">
             <div className="p-2 text-2xl font-semibold">ddingdong 모달입니다.</div>
-            <button
-              onClick={closeModal}
-              className="rounded-md bg-red-200 px-4 py-2 font-semibold text-white"
-            >
-              모달 닫기
-            </button>
+
+            <div className="flex gap-3">
+              <button
+                onClick={closeModal}
+                className="rounded-md bg-gray-100 px-4 py-2 font-semibold text-black hover:bg-gray-200"
+              >
+                취소
+              </button>
+              <button
+                onClick={closeModal}
+                className="rounded-md bg-red-200 px-4 py-2 font-semibold text-white hover:bg-red-300"
+              >
+                확인하기
+              </button>
+            </div>
           </div>
         </Modal>
       </div>
