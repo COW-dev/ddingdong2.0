@@ -17,10 +17,10 @@ export function StepDropdown({ contents }: Props) {
 
   return (
     <div
-      className={`md:w-82 fixed w-72 cursor-pointer rounded-lg border bg-white text-start text-base font-semibold text-gray-400 md:text-lg ${openDropdown ? '' : 'border-gray-100'}`}
+      className={`md:w-82 border-gray-100'} fixed w-72 cursor-pointer rounded-lg border bg-white text-start text-base font-semibold text-gray-400 md:text-lg`}
     >
       <div
-        className={`flex justify-between px-5 py-2 hover:bg-gray-100 md:py-3`}
+        className={`flex justify-between px-5 py-2 hover:rounded-lg hover:rounded-b-none hover:bg-gray-100 md:py-3`}
         onClick={() => setOpenDropdown(!openDropdown)}
       >
         {selectedContent}
@@ -31,14 +31,14 @@ export function StepDropdown({ contents }: Props) {
         <div className="flex flex-col">
           {Object.entries(contents).map(([category, items], categoryIndex) => (
             <div key={categoryIndex} className="flex flex-col">
-              <div className="cursor-default border-t-2 border-gray-100 px-5 py-2 font-semibold text-gray-300">
+              <div className="cursor-default border-t-2 border-gray-100 px-5 py-2 font-semibold text-gray-300 hover:rounded-br-lg">
                 {category}
               </div>
 
               {items.map((item, key) => (
                 <div
                   key={key}
-                  className="cursor-pointer px-5 py-2 last:border-none hover:bg-gray-100 hover:last:rounded-b md:py-3"
+                  className="cursor-pointer px-5 py-2 hover:bg-gray-100"
                   onClick={() => {
                     setSelectedContent(item);
                     setOpenDropdown(false);
