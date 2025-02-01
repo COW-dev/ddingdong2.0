@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import NavBack from './NavBack';
+import { NavBack } from './NavBack';
 
 const meta: Meta<typeof NavBack> = {
   title: 'components/common/NavBack',

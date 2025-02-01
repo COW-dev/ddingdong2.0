@@ -3,12 +3,13 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 
 import { Icon } from '../Icon';
+import { Title1 } from '../Typography';
 
 type Props = {
   title: string;
 };
 
-export default function NavBack({ title }: Props) {
+export function NavBack({ title }: Props) {
   const router = useRouter();
 
   return (
@@ -17,7 +18,7 @@ export default function NavBack({ title }: Props) {
       onClick={() => router.back()}
     >
       <Icon name="navbarArrow" />
-      <p className="text-2xl font-bold text-gray-500">{title}</p>
+      <Title1 className="text-2xl font-bold text-gray-500">{title}</Title1>
     </button>
   );
 }

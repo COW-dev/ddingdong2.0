@@ -1,1 +1,1 @@
-export { NavBack };
+export { NavBack } from './NavBack';
