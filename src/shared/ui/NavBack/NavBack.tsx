@@ -4,11 +4,11 @@ import { useRouter } from 'next/navigation';
 
 import { Icon } from '../Icon';
 
-type NavBackProps = {
+type Props = {
   title: string;
 };
 
-export default function NavBack({ title }: NavBackProps) {
+export default function NavBack({ title }: Props) {
   const router = useRouter();
 
   return (
