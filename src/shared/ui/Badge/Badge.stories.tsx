@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { Badge } from './Badge';
 
-export default {
+const meta = {
   title: 'Components/common/Badge',
   component: Badge,
   argTypes: {
@@ -12,9 +12,16 @@ export default {
     color: { control: 'radio', options: [true, false, undefined] },
     text: { control: 'text' },
   },
+  parameters: {
+    docs: {
+      autodocs: true,
+    },
+  },
 } satisfies Meta<typeof Badge>;
 
-export const InteractiveBadge: StoryObj<typeof Badge> = {
+export default meta;
+
+export const Default: StoryObj<typeof Badge> = {
   args: {
     isSubmited: undefined,
     isProgress: undefined,
