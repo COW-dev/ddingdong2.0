@@ -31,9 +31,9 @@ type ItemProps = {
    */
   children: React.ReactNode;
   /**
-   * icon to display alongside the trigger.
+   * arrow icon to display alongside the trigger.
    */
-  icon?: IconName;
+  isArrow?: boolean;
   /**
    * additional class names to apply to the AccordionItem.
    */
@@ -44,7 +44,7 @@ export function AccordionItem({
   trigger,
   className,
   children,
-  icon = 'arrowDown',
+  isArrow = true,
   ...props
 }: ItemProps) {
   return (
@@ -55,8 +55,8 @@ export function AccordionItem({
         >
           {trigger}
           <Icon
-            className={`ml-2 ${icon === 'arrowUp' && 'transition-transform duration-200 group-data-[state=open]:rotate-180'}`}
-            name={icon}
+            className={`ml-2 transition-transform duration-200 group-data-[state=open]:rotate-180 ${isArrow ? 'block' : 'hidden'}`}
+            name="arrowDown"
           />
         </AccordionPrimitives.Trigger>
       </AccordionPrimitives.Header>
