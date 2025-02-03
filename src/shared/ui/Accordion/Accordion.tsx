@@ -63,7 +63,7 @@ export function AccordionItem({
       <AccordionPrimitives.Content
         asChild
         className={cn(
-          `px-6 py-[17px] data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down`
+          `overflow-hidden px-6 py-[17px] data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down`
         )}
       >
         {children}
