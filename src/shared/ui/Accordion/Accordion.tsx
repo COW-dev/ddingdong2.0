@@ -3,7 +3,6 @@ import * as AccordionPrimitives from '@radix-ui/react-accordion';
 
 import { cn } from '@/shared/lib/core';
 
-import { IconName } from '../assets';
 import { Icon } from '../Icon';
 
 type Prop = {
@@ -62,9 +61,7 @@ export function AccordionItem({
       </AccordionPrimitives.Header>
       <AccordionPrimitives.Content
         asChild
-        className={cn(
-          `overflow-hidden px-6 py-[17px] data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down`
-        )}
+        className="overflow-hidden px-6 py-[17px] data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
       >
         {children}
       </AccordionPrimitives.Content>
