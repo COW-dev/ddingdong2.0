@@ -31,6 +31,7 @@ type ItemProps = {
   children: React.ReactNode;
   /**
    * arrow icon to display alongside the trigger.
+   * @default true
    */
   isArrow?: boolean;
   /**
