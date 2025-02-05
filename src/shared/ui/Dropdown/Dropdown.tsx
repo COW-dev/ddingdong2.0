@@ -12,7 +12,7 @@ export function Dropdown({ contents }: Props) {
   const [openDropdown, setOpenDropdown] = useState(false);
   return (
     <div
-      className={`${openDropdown ? 'rounded-lg' : 'rounded-lg border border-gray-100'} md:w-82 text-b' fixed w-72 cursor-pointer border border-gray-100 bg-white text-start text-base font-semibold text-gray-400 md:text-lg`}
+      className={`${openDropdown ? 'rounded-lg' : 'rounded-lg border border-gray-100'} md:w-82 text-b' relative w-72 cursor-pointer border border-gray-100 bg-white text-start text-base font-semibold text-gray-400 md:text-lg`}
     >
       <div
         className={`${openDropdown ? 'border-b-2 border-gray-100 hover:rounded-lg hover:rounded-b-none' : 'border-0'} flex justify-between px-5 py-2 hover:rounded-md hover:bg-gray-50 md:py-3`}

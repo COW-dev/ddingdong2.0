@@ -17,7 +17,7 @@ export function StepDropdown({ contents }: Props) {
 
   return (
     <div
-      className={`md:w-82 border-gray-100'} fixed w-72 cursor-pointer rounded-lg border bg-white text-start text-base font-semibold text-gray-400 md:text-lg`}
+      className={`md:w-82 border-gray-100'} relative w-72 cursor-pointer rounded-lg border bg-white text-start text-base font-semibold text-gray-400 md:text-lg`}
     >
       <div
         className={`flex justify-between px-5 py-2 hover:rounded-lg hover:rounded-b-none hover:bg-gray-100 md:py-3`}
