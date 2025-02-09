@@ -6,10 +6,7 @@ const meta = {
   title: 'Components/common/Badge',
   component: Badge,
   argTypes: {
-    isSubmited: { control: 'radio', options: [true, false, null] },
-    isProgress: { control: 'radio', options: [true, false, null] },
-    isRecruiting: { control: 'boolean' },
-    color: { control: 'radio', options: [true, false, undefined] },
+    color: { control: 'radio', options: ['red', 'green', 'gray'] },
     text: { control: 'text' },
   },
   parameters: {
@@ -23,9 +20,6 @@ export default meta;
 
 export const Default: StoryObj<typeof Badge> = {
   args: {
-    isSubmited: undefined,
-    isProgress: undefined,
-    isRecruiting: undefined,
     color: undefined,
     text: '상태 없음',
   },
