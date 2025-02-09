@@ -17,12 +17,12 @@ type Props = {
    * @default '상태 없음'
    */
   text?: string;
-};
+} & React.HTMLAttributes<HTMLDivElement>;
 
 /**
  * `Badge` is a UI element that visually represents various statuses.
  */
-export function Badge({ color = null, text }: Props) {
+export function Badge({ color, text, ...props }: Props) {
   let badgeColor = 'bg-gray-100 text-gray-400';
 
   if (color === 'green') {
@@ -36,7 +36,10 @@ export function Badge({ color = null, text }: Props) {
   const badgeText = text ?? '상태 없음';
 
   return (
-    <div className={`w-min whitespace-nowrap rounded-xl p-1 px-2 font-semibold ${badgeColor}`}>
+    <div
+      className={`w-min whitespace-nowrap rounded-xl p-1 px-2 font-semibold ${badgeColor}`}
+      {...props}
+    >
       {badgeText}
     </div>
   );
