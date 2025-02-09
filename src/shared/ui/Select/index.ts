@@ -1,2 +1,2 @@
 export { Select } from './Select';
-export { StepSelect } from './StepSelect';
+export { GroupingSelect } from './GroupingSelect';
