@@ -1,0 +1,9 @@
+addReviewers: true
+addAssignees: author
+
+reviewers:
+  - keemsebin
+  - yougyung
+  - ujinsim
+
+numberOfReviewers: 2
