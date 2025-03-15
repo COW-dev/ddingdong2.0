@@ -20,12 +20,12 @@ export function NavBack({ title, size }: Props) {
     >
       {size === 'sm' ? (
         <>
-          <Icon name="arrowLeft" className="w-5" />
+          <Icon name="arrowLeft" className="w-4 md:w-6" />
           <Title3 className="whitespace-nowrap text-gray-500">{title}</Title3>
         </>
       ) : (
         <>
-          <Icon name="navbarArrow" className="w-8" />
+          <Icon name="navbarArrow" className="w-6 md:w-8" />
           <Title1 className="whitespace-nowrap text-gray-500">{title}</Title1>
         </>
       )}
