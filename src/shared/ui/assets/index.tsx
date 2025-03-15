@@ -9,6 +9,7 @@ import DownLoad from './download.svg';
 import Etc from './etc.svg';
 import Insta from './instagram.svg';
 import List from './list.svg';
+import Loading from './loading.svg';
 import New from './new.svg';
 import Pin from './pin.svg';
 import Trash from './trash.svg';
@@ -30,7 +31,7 @@ export const Icons = {
   pin: Pin,
   trash: Trash,
   write: Write,
-
+  loading: Loading,
   instagram: Insta,
   youtube: Youtube,
 };
