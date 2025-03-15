@@ -3,10 +3,17 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { Modal } from './Modal';
 
+import { Button } from '../Button';
+import { DoubleButton } from '../DoubleButton';
+import { Title3 } from '../Typography';
+
 export default {
   title: 'components/common/Modal',
   component: Modal,
   tags: ['autodocs'],
+} satisfies Meta<typeof Modal>;
+
+export const Basic: StoryObj<typeof Modal> = {
   argTypes: {
     isOpen: {
       control: 'boolean',
@@ -26,9 +33,6 @@ export default {
       },
     },
   },
-} satisfies Meta<typeof Modal>;
-
-export const Basic: StoryObj<typeof Modal> = {
   args: {
     isOpen: false,
   },
@@ -40,30 +44,27 @@ export const Basic: StoryObj<typeof Modal> = {
 
     return (
       <div className="flex flex-col items-center gap-4">
-        <button
-          className="rounded-md bg-primary-300 px-4 py-2 font-semibold text-white"
-          onClick={openModal}
-        >
+        <Button onClick={openModal} variant="primary" color="blue">
           모달 열기
-        </button>
+        </Button>
 
         <Modal {...args} isOpen={isOpen} closeModal={closeModal}>
-          <div className="flex flex-col items-center gap-4 rounded-lg bg-white p-6 shadow-sm">
-            <div className="p-2 text-2xl font-semibold">ddingdong 모달입니다.</div>
+          <div className="flex flex-col items-center gap-4 rounded-lg bg-white px-[60px] py-9 shadow-sm">
+            <Title3 className="text-2xl font-semibold">ddingdong 모달입니다.</Title3>
 
             <div className="flex gap-3">
-              <button
-                onClick={closeModal}
-                className="rounded-md bg-gray-100 px-4 py-2 font-semibold text-black hover:bg-gray-200"
-              >
-                취소
-              </button>
-              <button
-                onClick={closeModal}
-                className="rounded-md bg-red-200 px-4 py-2 font-semibold text-white hover:bg-red-300"
-              >
-                확인하기
-              </button>
+              <DoubleButton
+                left={
+                  <Button onClick={closeModal} variant="tertiary">
+                    취소
+                  </Button>
+                }
+                right={
+                  <Button onClick={closeModal} variant="primary" color="red">
+                    확인하기
+                  </Button>
+                }
+              />
             </div>
           </div>
         </Modal>
