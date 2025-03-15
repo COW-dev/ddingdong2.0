@@ -3,22 +3,32 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 
 import { Icon } from '../Icon';
-import { Title1 } from '../Typography';
+import { Title1, Title3 } from '../Typography';
 
 type Props = {
   title: string;
+  size: 'sm' | 'lg';
 };
 
-export function NavBack({ title }: Props) {
+export function NavBack({ title, size }: Props) {
   const router = useRouter();
 
   return (
     <button
-      className="flex cursor-pointer flex-row items-center gap-2 align-middle"
+      className="flex cursor-pointer flex-row items-center gap-2 whitespace-nowrap align-middle"
       onClick={() => router.back()}
     >
-      <Icon name="navbarArrow" />
-      <Title1 className="text-2xl font-bold text-gray-500">{title}</Title1>
+      {size === 'sm' ? (
+        <>
+          <Icon name="arrowLeft" className="w-5" />
+          <Title3 className="whitespace-nowrap text-gray-500">{title}</Title3>
+        </>
+      ) : (
+        <>
+          <Icon name="navbarArrow" className="w-8" />
+          <Title1 className="whitespace-nowrap text-gray-500">{title}</Title1>
+        </>
+      )}
     </button>
   );
 }

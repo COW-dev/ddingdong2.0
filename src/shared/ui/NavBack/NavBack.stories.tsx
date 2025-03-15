@@ -7,7 +7,7 @@ const meta: Meta<typeof NavBack> = {
   component: NavBack,
   decorators: [
     (Story) => (
-      <div style={{ width: 400, backgroundColor: 'white', padding: 20 }}>
+      <div>
         <Story />
       </div>
     ),
