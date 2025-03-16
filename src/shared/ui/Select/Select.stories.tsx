@@ -32,7 +32,7 @@ export const Basic: StoryObj<typeof Select> = {
   },
   args: {
     size: 'md',
-    contents: ['옵션 1', '옵션 2', '옵션 3'],
+    contents: ['체크박스', '객관식', '단답형', '서술형', '파일'],
   },
   render: (args) => <Select {...args} />,
 };

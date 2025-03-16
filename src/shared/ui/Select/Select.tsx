@@ -46,7 +46,7 @@ export function Select({ contents, size }: Props) {
                 setSelectedContent(contents[key]);
                 setOpenSelect(!openSelect);
               }}
-              className={`cursor-pointer border-b-2 border-gray-100 ${
+              className={`cursor-pointer border-gray-100 ${
                 size === 'md' ? 'px-3 py-1 text-sm' : 'px-5 py-2 md:py-3'
               } last:border-none hover:bg-gray-50 hover:last:rounded-b-md`}
               key={key}
