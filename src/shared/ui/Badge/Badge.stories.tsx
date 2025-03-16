@@ -5,22 +5,18 @@ import { Badge } from './Badge';
 const meta = {
   title: 'Components/common/Badge',
   component: Badge,
-  argTypes: {
-    color: { control: 'radio', options: ['red', 'green', 'gray'] },
-    text: { control: 'text' },
-  },
-  parameters: {
-    docs: {
-      autodocs: true,
-    },
-  },
+  tags: ['autodocs'],
 } satisfies Meta<typeof Badge>;
 
 export default meta;
 
-export const Default: StoryObj<typeof Badge> = {
+export const Basic: StoryObj<typeof Badge> = {
   args: {
-    color: undefined,
-    text: '상태 없음',
+    variant: 'negative',
+    text: 'Badge',
+  },
+  argTypes: {
+    variant: { control: 'radio', options: ['positive', 'negative', 'neutral'] },
+    text: { control: 'text' },
   },
 };
