@@ -7,6 +7,11 @@ const meta: Meta<typeof Select> = {
   title: 'components/common/Select',
   component: Select,
   tags: ['autodocs'],
+} satisfies Meta<typeof Select>;
+
+export default meta;
+
+export const Basic: StoryObj<typeof Select> = {
   parameters: {
     docs: {
       description: {
@@ -17,7 +22,7 @@ const meta: Meta<typeof Select> = {
   argTypes: {
     size: {
       control: { type: 'radio' },
-      options: ['default', 'small'],
+      options: ['md', 'lg'],
       description: 'Select 컴포넌트의 크기 옵션입니다.',
     },
     contents: {
@@ -25,21 +30,9 @@ const meta: Meta<typeof Select> = {
       description: '선택할 수 있는 옵션 리스트 또는 그룹화된 옵션입니다.',
     },
   },
-} satisfies Meta<typeof Select>;
-
-export default meta;
-
-export const Basic: StoryObj<typeof Select> = {
   args: {
-    size: 'default',
+    size: 'md',
     contents: ['옵션 1', '옵션 2', '옵션 3'],
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: '기본적인 선택 옵션을 제공하는 Select 컴포넌트입니다.',
-      },
-    },
   },
   render: (args) => <Select {...args} />,
 };
@@ -84,8 +77,7 @@ export const Grouping: StoryObj<typeof GroupingSelect> = {
     controls: { exclude: ['size'] },
     docs: {
       description: {
-        story:
-          '그룹화된 옵션을 제공하는 Select 컴포넌트입니다. 각 그룹별로 선택할 수 있는 항목이 나뉘어 있습니다.',
+        story: '그룹화된 옵션을 제공하는 Select 컴포넌트입니다. ',
       },
     },
   },
