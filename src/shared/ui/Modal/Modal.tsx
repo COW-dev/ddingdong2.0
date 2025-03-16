@@ -37,10 +37,12 @@ export function Modal({ isOpen, closeModal, children, mode }: Props) {
         {...MODAL_MOTION}
         className="fixed inset-0 z-30 flex w-full items-center justify-center"
       >
+        <div className="absolute inset-0 bg-black bg-opacity-50" onClick={closeModal} />
+
         <div
           ref={modalRef}
           onClick={(e) => e.stopPropagation()}
-          className="items-center justify-center rounded-lg bg-white shadow-[0px_20px_24px_rgba(16,24,40,0.1),_0px_8px_8px_-4px_rgba(16,24,40,0.04)]"
+          className="relative z-40 items-center justify-center rounded-lg bg-white"
         >
           {children}
         </div>
