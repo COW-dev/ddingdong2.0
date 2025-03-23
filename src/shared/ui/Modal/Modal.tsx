@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 
 import { MODAL_MOTION } from '@/shared/constants/motion';
@@ -9,41 +9,22 @@ type Props = {
   isOpen: boolean;
   closeModal: () => void;
   children: React.ReactNode;
-  mode?: 'wait' | 'sync' | 'popLayout';
 };
 
-export function Modal({ isOpen, closeModal, children, mode }: Props) {
-  const modalRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
-        closeModal();
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isOpen, closeModal]);
+export function Modal({ isOpen, closeModal, children }: Props) {
+  if (!isOpen) return null;
 
   return (
-    <Portal isOpen={isOpen} mode={mode}>
+    <Portal isOpen={isOpen}>
       <motion.div
-        {...MODAL_MOTION}
+        initial={MODAL_MOTION.initial}
+        animate={MODAL_MOTION.animate}
+        exit={MODAL_MOTION.exit}
         className="fixed inset-0 z-30 flex w-full items-center justify-center"
       >
         <div className="absolute inset-0 bg-black bg-opacity-50" onClick={closeModal} />
 
-        <div
-          ref={modalRef}
-          onClick={(e) => e.stopPropagation()}
-          className="relative z-40 items-center justify-center rounded-lg bg-white"
-        >
+        <div className="relative z-40 items-center justify-center rounded-lg bg-white">
           {children}
         </div>
       </motion.div>
