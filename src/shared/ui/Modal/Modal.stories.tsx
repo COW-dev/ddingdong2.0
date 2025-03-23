@@ -19,11 +19,6 @@ export const Basic: StoryObj<typeof Modal> = {
       control: 'boolean',
       defaultValue: false,
     },
-    mode: {
-      control: { type: 'select' },
-      options: ['wait', 'sync', 'popLayout'],
-      defaultValue: 'sync',
-    },
   },
   parameters: {
     docs: {
