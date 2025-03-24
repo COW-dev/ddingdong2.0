@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Skeleton } from './Skeleton';
+import { Skeleton, TextSkeleton } from './Skeleton';
 
 const meta = {
   title: 'components/common/Skeleton',
@@ -18,16 +18,29 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<typeof Skeleton>;
-
+type TextStory = StoryObj<typeof TextSkeleton>;
 export const Basic: Story = {
-  args: { className: 'h-5 w-full' },
+  args: { className: 'h-5' },
   argTypes: {
     className: {
       control: { type: 'text' },
-      table: { type: { summary: 'string ' } },
+      table: { type: { summary: 'string' } },
     },
   },
   render: (args) => {
     return <Skeleton className={args.className} />;
+  },
+};
+
+export const Text: TextStory = {
+  args: { length: 2 },
+  argTypes: {
+    length: {
+      control: { type: 'number' },
+      table: { type: { summary: 'string' } },
+    },
+  },
+  render: (args) => {
+    return <TextSkeleton length={args.length} />;
   },
 };
