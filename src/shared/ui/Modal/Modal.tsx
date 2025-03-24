@@ -20,9 +20,10 @@ export function Modal({ isOpen, closeModal, children }: Props) {
             initial={MODAL_MOTION.initial}
             animate={MODAL_MOTION.animate}
             exit={MODAL_MOTION.exit}
+            onClick={closeModal}
             className="fixed inset-0 z-30 flex w-full items-center justify-center"
           >
-            <div className="absolute inset-0 bg-black bg-opacity-50" onClick={closeModal} />
+            <div className="absolute inset-0 bg-black bg-opacity-50" />
             <div className="relative z-40 items-center justify-center rounded-lg bg-white">
               {children}
             </div>
