@@ -1,21 +1,11 @@
-import { AnimatePresence } from 'framer-motion';
-import ReactDom from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-type Props = {
-  isOpen: boolean;
-  mode?: 'wait' | 'sync' | 'popLayout';
-  children: React.ReactNode;
-};
-
-export function Portal({ isOpen, mode = 'sync', children }: Props) {
-  if (typeof window === 'undefined' || !isOpen) {
+export function Portal({ children }: { children: React.ReactNode }) {
+  if (typeof window === 'undefined') {
     return null;
   }
 
   const container = document.body as HTMLElement;
-
-  return ReactDom.createPortal(
-    <AnimatePresence mode={mode}>{children}</AnimatePresence>,
-    container
-  );
+  return ReactDOM.createPortal(children, container);
 }
