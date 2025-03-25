@@ -25,7 +25,7 @@ type TextProps = {
   length: number;
 } & React.HTMLAttributes<HTMLDivElement>;
 
-export function TextSkeleton({ length = 2, className, ...props }: TextProps) {
+export function TextSkeleton({ length = 2, className = '', ...props }: TextProps) {
   return (
     <div {...props} className={cn('w-full space-y-2', className)}>
       {[...Array(length)].map((_, index) => (
