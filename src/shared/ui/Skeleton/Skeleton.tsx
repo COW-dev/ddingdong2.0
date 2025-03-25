@@ -22,7 +22,7 @@ type TextProps = {
    * length of text line
    * @default 2
    */
-  length: number;
+  length?: number;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export function TextSkeleton({ length = 2, className = '', ...props }: TextProps) {
