@@ -5,14 +5,17 @@ import { Icon } from '../Icon';
 
 type Props = {
   contents: { [key: string]: string[] };
+  placeholder?: string;
 };
 
-export function GroupingSelect({ contents }: Props) {
+export function GroupingSelect({ contents, placeholder }: Props) {
   const allItems = Object.entries(contents).flatMap(([category, items]) =>
     items.map((item) => ({ category, item }))
   );
 
-  const [selectedContent, setSelectedContent] = useState(allItems[0]?.item || '');
+  const [selectedContent, setSelectedContent] = useState(
+    placeholder ? placeholder : allItems[0]?.item || ''
+  );
   const [openSelect, setOpenSelect] = useState(false);
 
   const totalItems = allItems.length;

@@ -6,10 +6,11 @@ import { Icon } from '../Icon';
 type Props = {
   contents: string[];
   size?: 'md' | 'lg';
+  placeholder?: string;
 };
 
-export function Select({ contents, size }: Props) {
-  const [selectedContent, setSelectedContent] = useState(contents[0]);
+export function Select({ contents, size, placeholder }: Props) {
+  const [selectedContent, setSelectedContent] = useState(placeholder ? placeholder : contents[0]);
   const [openSelect, setOpenSelect] = useState(false);
 
   return (

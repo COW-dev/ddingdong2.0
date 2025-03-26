@@ -29,10 +29,14 @@ export const Basic: StoryObj<typeof Select> = {
       control: 'object',
       description: '선택할 수 있는 옵션 리스트 또는 그룹화된 옵션입니다.',
     },
+    placeholder: {
+      description: '옵션을 선택하기 이전에 select 필드에 표시되는 메세지입니다. ',
+    },
   },
   args: {
     size: 'md',
     contents: ['체크박스', '객관식', '단답형', '서술형', '파일'],
+    placeholder: '문제 유형',
   },
   render: (args) => <Select {...args} />,
 };
@@ -72,6 +76,7 @@ export const Grouping: StoryObj<typeof GroupingSelect> = {
       방목기초교육대학: ['전공자유학부(인문)', '전공자유학부(자연)', '융합전공학부(인문)'],
       국제학부: ['글로벌비즈니스전공'],
     },
+    placeholder: '학과를 선택해주세요',
   },
   parameters: {
     controls: { exclude: ['size'] },
