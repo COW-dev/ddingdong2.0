@@ -15,7 +15,7 @@ export function Select({ contents, size }: Props) {
   return (
     <div
       className={`${openSelect ? 'rounded-lg' : 'rounded-lg border border-gray-100'} text-b'${
-        size === 'md' ? 'md:w-26 w-24' : 'md:w-66 w-60'
+        size === 'md' ? 'md:min-w-26 w-fit min-w-24' : 'md:min-w-66 w-60'
       } cursor-pointer border border-gray-200 bg-white text-start text-base font-semibold text-gray-400 md:text-lg`}
     >
       <div
