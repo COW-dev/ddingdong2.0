@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { GroupingSelect } from './GroupingSelect';
-import { Select } from './Select';
+import { Select } from './index';
 
 const meta: Meta<typeof Select> = {
   title: 'components/common/Select',
@@ -27,18 +27,25 @@ export const Basic: StoryObj<typeof Select> = {
     },
     contents: {
       control: 'object',
-      description: '선택할 수 있는 옵션 리스트 또는 그룹화된 옵션입니다.',
+      description: '선택할 수 있는 옵션 리스트입니다.',
     },
     placeholder: {
-      description: '옵션을 선택하기 이전에 select 필드에 표시되는 메세지입니다. ',
+      control: 'text',
+      description: '옵션을 선택하기 이전에 표시되는 텍스트입니다.',
     },
   },
   args: {
     size: 'md',
-    contents: ['체크박스', '객관식', '단답형', '서술형', '파일'],
-    placeholder: '문제 유형',
+    contents: ['객관식', '단답형', '체크박스', '드롭다운', '파일'],
+    placeholder: '유형을 선택해주세요',
   },
-  render: (args) => <Select {...args} />,
+  render: (args) => (
+    <Select size={args.size} defaultValue={args.contents[0]}>
+      {args.contents.map((item, index) => (
+        <Select.Option key={index} id={String(index + 1)} name={item} />
+      ))}
+    </Select>
+  ),
 };
 
 export const Grouping: StoryObj<typeof GroupingSelect> = {
