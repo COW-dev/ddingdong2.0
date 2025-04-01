@@ -1,7 +1,7 @@
+import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { GroupingSelect } from './GroupingSelect';
-import { Select } from './index';
+import { GroupingSelect, Select } from './index';
 
 const meta: Meta<typeof Select> = {
   title: 'components/common/Select',
@@ -38,6 +38,28 @@ export const Basic: StoryObj<typeof Select> = {
     size: 'md',
     contents: ['객관식', '단답형', '체크박스', '드롭다운', '파일'],
     placeholder: '유형을 선택해주세요',
+  },
+  render: (args) => (
+    <Select size={args.size} defaultValue={args.contents[0]}>
+      {args.contents.map((item, index) => (
+        <Select.Option key={index} id={String(index + 1)} name={item} />
+      ))}
+    </Select>
+  ),
+};
+
+export const LargeSize: StoryObj<typeof Select> = {
+  args: {
+    size: 'lg',
+    contents: ['객관식', '단답형', '체크박스', '드롭다운', '파일'],
+    placeholder: '유형을 선택해주세요',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: '`lg` 사이즈가 적용된 Select 컴포넌트입니다.',
+      },
+    },
   },
   render: (args) => (
     <Select size={args.size} defaultValue={args.contents[0]}>
@@ -89,9 +111,20 @@ export const Grouping: StoryObj<typeof GroupingSelect> = {
     controls: { exclude: ['size'] },
     docs: {
       description: {
-        story: '그룹화된 옵션을 제공하는 Select 컴포넌트입니다. ',
+        story: '그룹화된 옵션을 제공하는 Select 컴포넌트입니다.',
       },
     },
   },
-  render: (args) => <GroupingSelect {...args} />,
+  render: (args) => (
+    <GroupingSelect defaultValue={args.placeholder}>
+      {Object.entries(args.contents).map(([group, departments]) => (
+        <React.Fragment key={group}>
+          <GroupingSelect.Group name={group} />
+          {departments.map((dept, idx) => (
+            <GroupingSelect.Option key={`${group}-${idx}`} id={`${group}-${idx}`} name={dept} />
+          ))}
+        </React.Fragment>
+      ))}
+    </GroupingSelect>
+  ),
 };
