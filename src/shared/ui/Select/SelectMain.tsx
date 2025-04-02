@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import { OptionList } from './OptionList.tsx';
 import { SelectContext } from './Select.context.tsx';
@@ -11,7 +11,6 @@ type OptionProps = {
 };
 
 type Props = {
-  selected?: string;
   children: React.ReactNode;
   defaultValue: string;
   onChange?: (option: OptionProps) => void;
@@ -19,9 +18,7 @@ type Props = {
 };
 
 export function SelectMain({ children, defaultValue, onChange, size = 'lg' }: Props) {
-  const [selected, setSelected] = useState<OptionProps | null>(
-    defaultValue?.trim() ? { id: '', name: defaultValue } : null
-  );
+  const [selected, setSelected] = useState<OptionProps>({ id: '', name: defaultValue });
 
   const [isOpen, setIsOpen] = useState(false);
 
