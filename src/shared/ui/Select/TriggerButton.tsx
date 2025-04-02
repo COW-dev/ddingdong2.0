@@ -20,7 +20,7 @@ export function TriggerButton({ selected, onClick, isOpen, size = 'lg' }: Props)
 
   return (
     <div className={containerClass} onClick={onClick}>
-      <div
+      <button
         className={`flex w-full items-center justify-between rounded-lg align-middle hover:rounded-lg ${
           isOpen ? 'hover:rounded-b-none' : ''
         } `}
@@ -32,7 +32,7 @@ export function TriggerButton({ selected, onClick, isOpen, size = 'lg' }: Props)
             isOpen ? 'rotate-180' : ''
           } ${size === 'md' ? 'w-5' : ''}`}
         />
-      </div>
+      </button>
     </div>
   );
 }
