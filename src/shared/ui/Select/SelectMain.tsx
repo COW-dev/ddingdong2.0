@@ -18,19 +18,12 @@ type Props = {
   size?: 'md' | 'lg';
 };
 
-export function SelectMain({ children, defaultValue, contents, onChange, size = 'lg' }: Props) {
-  const [selected, setSelected] = useState<OptionProps | null>(null);
-  const [isOpen, setIsOpen] = useState(false);
+export function SelectMain({ children, defaultValue, onChange, size = 'lg' }: Props) {
+  const [selected, setSelected] = useState<OptionProps | null>(
+    defaultValue?.trim() ? { id: '', name: defaultValue } : null
+  );
 
-  useEffect(() => {
-    if (!selected) {
-      if (defaultValue && defaultValue.trim() !== '') {
-        setSelected({ id: '', name: defaultValue });
-      } else if (contents && contents.length > 0) {
-        setSelected({ id: '', name: contents[0] });
-      }
-    }
-  }, [defaultValue, contents, selected]);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleSelect = (option: OptionProps) => {
     setSelected(option);
