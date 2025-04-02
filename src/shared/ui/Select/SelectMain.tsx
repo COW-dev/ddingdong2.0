@@ -11,8 +11,9 @@ type OptionProps = {
 };
 
 type Props = {
+  selected?: string;
   children: React.ReactNode;
-  defaultValue?: string;
+  defaultValue: string;
   onChange?: (option: OptionProps) => void;
   size?: 'md' | 'lg';
 };
@@ -23,9 +24,9 @@ export function SelectMain({ children, defaultValue, contents, onChange, size = 
 
   useEffect(() => {
     if (!selected) {
-      if (defaultValue) {
+      if (defaultValue && defaultValue.trim() !== '') {
         setSelected({ id: '', name: defaultValue });
-      } else if (contents.length > 0) {
+      } else if (contents && contents.length > 0) {
         setSelected({ id: '', name: contents[0] });
       }
     }
