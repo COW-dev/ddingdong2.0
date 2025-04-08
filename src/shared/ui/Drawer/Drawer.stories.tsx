@@ -1,0 +1,43 @@
+import type { Meta, StoryObj } from '@storybook/react';
+
+import { useModal } from '@/shared/model/useModal';
+
+import { Drawer, Props } from './Drawer';
+
+import { Button } from '../Button';
+import { Title1 } from '../Typography';
+
+const meta = {
+  title: 'components/common/Drawer',
+  component: Drawer,
+  tags: ['autodocs'],
+} satisfies Meta<typeof Drawer>;
+
+export default meta;
+
+export type Story = StoryObj<Props>;
+export const Basic: Story = {
+  args: {
+    isOpen: true,
+    onClose: () => {},
+  },
+  argTypes: {
+    onClose: { action: 'onClose' },
+  },
+  render: () => {
+    const { isOpen, openModal, closeModal } = useModal();
+
+    return (
+      <>
+        <Button variant="primary" color="blue" onClick={openModal}>
+          Open Drawer
+        </Button>
+        <Drawer isOpen={isOpen} onClose={closeModal}>
+          <div className="p-32">
+            <Title1>Drawer</Title1>
+          </div>
+        </Drawer>
+      </>
+    );
+  },
+};
