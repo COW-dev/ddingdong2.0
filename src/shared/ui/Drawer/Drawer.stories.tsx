@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { useModal } from '@/shared/model/useModal';
+import { usePortal } from '@/shared/model/usePortal';
 
 import { Drawer, Props } from './Drawer';
 
@@ -25,7 +25,7 @@ export const Basic: Story = {
     onClose: { action: 'onClose' },
   },
   render: () => {
-    const { isOpen, openModal, closeModal } = useModal();
+    const { isOpen, openModal, closeModal } = usePortal();
 
     return (
       <>
