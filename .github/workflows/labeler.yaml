@@ -29,7 +29,10 @@ jobs:
           config-file-name: labeler-config.yaml
 
   add_reviewers:
+    if: github.actor != 'coderabbitai[bot]'
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     steps:
       - uses: actions-ecosystem/action-add-assignees@v1
         with:
