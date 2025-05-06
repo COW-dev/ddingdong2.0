@@ -4,7 +4,7 @@ import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import { cn } from '@/shared/lib/core';
 import { Icon } from '@/shared/ui/Icon/Icon';
 
-import { Body2 } from '../Typography/Typography';
+import { Subtitle3 } from '../Typography/Typography';
 
 type Props = {
   /**
@@ -16,38 +16,27 @@ type Props = {
    */
   label?: string;
   /**
-   * default checked state.
-   * @default false
-   */
-  defaultChecked?: boolean;
-  /**
    * size of the checkbox.
    * @default 'md'
    */
   size?: 'sm' | 'md';
+  /**
+   * id of the checkbox.
+   */
+  id: string;
 } & React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>;
 
-export function Checkbox({
-  className,
-  size = 'md',
-  defaultChecked = false,
-  label,
-  ...props
-}: Props) {
-  const [checked, setChecked] = React.useState(defaultChecked);
-
+export function Checkbox({ className, size = 'md', label, id, ...props }: Props) {
   return (
-    <CheckboxPrimitive.Root
-      checked={checked}
-      className={cn(
-        'peer flex h-6 w-6 items-center gap-2 rounded-sm border-gray-300 disabled:cursor-not-allowed disabled:opacity-50 data-[state=unchecked]:border-[1.5px]',
-        size === 'sm' && 'h-4 w-4',
-        className
-      )}
-      {...props}
-    >
-      <div
-        className={`flex items-center justify-center rounded-sm bg-primary-300 ${size === 'sm' ? 'min-w-4' : 'min-w-6'}`}
+    <div className="flex items-center gap-2">
+      <CheckboxPrimitive.Root
+        id={id}
+        className={cn(
+          `peer flex h-6 w-6 items-center rounded-sm border-gray-300 disabled:cursor-not-allowed disabled:opacity-50 data-[state=unchecked]:border-[1.5px] data-[state=checked]:bg-primary-300`,
+          size === 'sm' ? 'h-4 w-4' : 'h-6 w-6',
+          className
+        )}
+        {...props}
       >
         <CheckboxPrimitive.Indicator>
           <Icon
@@ -57,13 +46,16 @@ export function Checkbox({
             className="text-primary-300"
           />
         </CheckboxPrimitive.Indicator>
-      </div>
-      <Body2
-        onClick={() => setChecked(!checked)}
-        className="text-gray-400 peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-      >
-        {label}
-      </Body2>
-    </CheckboxPrimitive.Root>
+      </CheckboxPrimitive.Root>
+      {label && (
+        <Subtitle3
+          htmlFor={id}
+          as="label"
+          className="text-gray-400 peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        >
+          {label}
+        </Subtitle3>
+      )}
+    </div>
   );
 }
