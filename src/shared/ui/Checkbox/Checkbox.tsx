@@ -32,7 +32,7 @@ export function Checkbox({ className, size = 'md', label, id, ...props }: Props)
       <CheckboxPrimitive.Root
         id={id}
         className={cn(
-          `peer flex h-6 w-6 items-center rounded-sm border-gray-300 disabled:cursor-not-allowed disabled:opacity-50 data-[state=unchecked]:border-[1.5px] data-[state=checked]:bg-primary-300`,
+          `peer flex items-center rounded-sm border-gray-300 disabled:cursor-not-allowed disabled:opacity-50 data-[state=unchecked]:border-[1.5px] data-[state=checked]:bg-primary-300`,
           size === 'sm' ? 'h-4 w-4' : 'h-6 w-6',
           className
         )}
