@@ -21,9 +21,9 @@ type Props = {
    */
   size?: 'sm' | 'md';
   /**
-   * id of the checkbox.
+   * id connects the button to the label.
    */
-  id: string;
+  id?: string;
 } & React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>;
 
 export function Checkbox({ className, size = 'md', label, id, ...props }: Props) {

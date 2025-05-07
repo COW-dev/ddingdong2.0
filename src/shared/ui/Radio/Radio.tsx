@@ -36,9 +36,9 @@ type ItemProps = {
    */
   size?: 'md' | 'lg';
   /**
-   * id of the radio button.
+   * id connects the button to the label.
    */
-  id: string;
+  id?: string;
 } & React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item>;
 
 export function RadioItem({ className, size = 'md', label, id, ...props }: ItemProps) {
