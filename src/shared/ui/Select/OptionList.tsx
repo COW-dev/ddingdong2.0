@@ -21,7 +21,7 @@ export function OptionList({ children }: Props) {
     <div
       className={cn(
         'mt-1 max-h-60 overflow-y-auto rounded-md border border-gray-200 bg-white font-semibold text-gray-400',
-        sizeVariants
+        sizeVariants[size]
       )}
     >
       {children}

@@ -1,12 +1,15 @@
-import { OptionList } from './OptionList.tsx';
-import { SelectContext } from './Select.context.tsx';
+'use client';
+import React, { useState } from 'react';
+
+import { OptionList } from './OptionList';
+import { SelectContext } from './Select.context';
 import { TriggerButton } from './TriggerButton';
-import { useSelectMain } from './useSelectMain';
 
 type OptionProps = {
   id: string;
   name: string;
 };
+
 type Props = {
   children: React.ReactNode;
   defaultValue: string;
@@ -15,10 +18,14 @@ type Props = {
 };
 
 export function SelectMain({ children, defaultValue, onChange, size = 'lg' }: Props) {
-  const { selected, isOpen, setIsOpen, handleSelect } = useSelectMain({
-    defaultValue,
-    onChange,
-  });
+  const [selected, setSelected] = useState<OptionProps>({ id: '', name: defaultValue });
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleSelect = (option: OptionProps) => {
+    setSelected(option);
+    setIsOpen(false);
+    onChange?.(option);
+  };
 
   return (
     <SelectContext.Provider value={{ selected, onSelect: handleSelect, size }}>
@@ -29,7 +36,7 @@ export function SelectMain({ children, defaultValue, onChange, size = 'lg' }: Pr
           size={size}
           isOpen={isOpen}
         />
-        {isOpen && <OptionList size={size}>{children}</OptionList>}
+        {isOpen && <OptionList>{children}</OptionList>}
       </div>
     </SelectContext.Provider>
   );
