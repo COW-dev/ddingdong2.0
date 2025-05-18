@@ -1,18 +1,18 @@
 import { Option } from './Option';
 import { OptionGroupName } from './OptionGroupName';
 import { OptionList } from './OptionList';
+import { SelectButton } from './SelectButton';
 import { SelectMain } from './SelectMain';
-import { TriggerButton } from './TriggerButton';
 
 export const Select = Object.assign(SelectMain, {
   Option: Option,
-  Trigger: TriggerButton,
+  Button: SelectButton,
   List: OptionList,
 });
 
 export const GroupingSelect = Object.assign(SelectMain, {
-  Option,
-  Trigger: TriggerButton,
+  Option: Option,
+  Select: SelectButton,
   List: OptionList,
   Group: OptionGroupName,
 });

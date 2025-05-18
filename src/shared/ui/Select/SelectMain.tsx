@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 import { OptionList } from './OptionList';
 import { SelectContext } from './Select.context';
-import { TriggerButton } from './TriggerButton';
+import { SelectButton } from './SelectButton';
 
 type OptionProps = {
   id: string;
@@ -18,7 +18,10 @@ type Props = {
 };
 
 export function SelectMain({ children, defaultValue, onChange, size = 'lg' }: Props) {
-  const [selected, setSelected] = useState<OptionProps>({ id: '', name: defaultValue });
+  const [selected, setSelected] = useState<OptionProps>({
+    id: '',
+    name: defaultValue,
+  });
   const [isOpen, setIsOpen] = useState(false);
 
   const handleSelect = (option: OptionProps) => {
@@ -30,7 +33,7 @@ export function SelectMain({ children, defaultValue, onChange, size = 'lg' }: Pr
   return (
     <SelectContext.Provider value={{ selected, onSelect: handleSelect, size }}>
       <div className="relative w-fit">
-        <TriggerButton
+        <SelectButton
           selected={selected.name}
           onClick={() => setIsOpen(!isOpen)}
           size={size}
