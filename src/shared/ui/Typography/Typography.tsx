@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef } from 'react';
+import React, { ComponentPropsWithoutRef } from 'react';
 import { cva } from 'class-variance-authority';
 
 import { cn } from '@/shared/lib/core';
@@ -19,10 +19,12 @@ type TypographyVariant =
   | 'ButtonTitle1'
   | 'ButtonTitle2';
 
-type Props = {
+type TypographyProps = {
   variant: TypographyVariant;
   className?: string;
-} & ComponentPropsWithoutRef<'p'>;
+  as?: React.ElementType;
+  children: React.ReactNode;
+} & ComponentPropsWithoutRef<'div' | 'span' | 'label' | 'p'>;
 
 const variantClasses = cva('whitespace-pre-wrap', {
   variants: {
@@ -48,20 +50,26 @@ const variantClasses = cva('whitespace-pre-wrap', {
   },
 });
 
-function Typography({ children, variant = 'Body1', className = '', ...props }: Props) {
+function Typography({
+  children,
+  variant = 'Body1',
+  className = '',
+  as: Component = 'p',
+  ...props
+}: TypographyProps) {
   return (
-    <p className={cn(variantClasses({ type: variant }), className)} {...props}>
+    <Component className={cn(variantClasses({ type: variant }), className)} {...props}>
       {children}
-    </p>
+    </Component>
   );
 }
 
-function createTypography(variant: TypographyVariant) {
-  function Component(props: Omit<Props, 'variant'>) {
+const createTypography = (variant: TypographyVariant) => {
+  function TypographyComponent(props: Omit<TypographyProps, 'variant'>) {
     return <Typography variant={variant} {...props} />;
   }
-  return Component;
-}
+  return TypographyComponent;
+};
 
 export const Title1 = createTypography('Title1');
 export const Title2 = createTypography('Title2');
@@ -77,3 +85,17 @@ export const Caption1 = createTypography('Caption1');
 export const Caption2 = createTypography('Caption2');
 export const ButtonTitle1 = createTypography('ButtonTitle1');
 export const ButtonTitle2 = createTypography('ButtonTitle2');
+
+type TypographyComponentProps<T extends React.ElementType> = {
+  as?: T;
+  children: React.ReactNode;
+} & ComponentPropsWithoutRef<T>;
+
+export function TypographyComponent<T extends React.ElementType = 'p'>({
+  as,
+  children,
+  ...props
+}: TypographyComponentProps<T>) {
+  const Component = as || 'p';
+  return <Component {...props}>{children}</Component>;
+}
