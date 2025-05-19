@@ -1,4 +1,4 @@
-import React, { ComponentPropsWithoutRef } from 'react';
+import React, { ComponentPropsWithoutRef, createElement, ReactNode } from 'react';
 import { cva } from 'class-variance-authority';
 
 import { cn } from '@/shared/lib/core';
@@ -18,13 +18,6 @@ type TypographyVariant =
   | 'Caption2'
   | 'ButtonTitle1'
   | 'ButtonTitle2';
-
-type TypographyProps = {
-  variant: TypographyVariant;
-  className?: string;
-  as?: React.ElementType;
-  children: React.ReactNode;
-} & ComponentPropsWithoutRef<'div' | 'span' | 'label' | 'p'>;
 
 const variantClasses = cva('whitespace-pre-wrap', {
   variants: {
@@ -50,25 +43,38 @@ const variantClasses = cva('whitespace-pre-wrap', {
   },
 });
 
-function Typography({
+type AllowedTag = 'p' | 'div' | 'label' | 'span';
+
+type TypographyProps<T extends AllowedTag> = {
+  as?: T;
+  className?: string;
+  children?: ReactNode;
+  variant?: TypographyVariant;
+} & Omit<ComponentPropsWithoutRef<T>, 'as' | 'className' | 'children'>;
+
+export function Typography<T extends AllowedTag = 'p'>({
+  as,
+  className,
   children,
-  variant = 'Body1',
-  className = '',
-  as: Component = 'p',
   ...props
-}: TypographyProps) {
-  return (
-    <Component className={cn(variantClasses({ type: variant }), className)} {...props}>
-      {children}
-    </Component>
+}: TypographyProps<T>) {
+  const Component = as || 'p';
+
+  return createElement(
+    Component,
+    {
+      className: cn(variantClasses({ type: props.variant }), className),
+      ...props,
+    } as ComponentPropsWithoutRef<T>,
+    children
   );
 }
 
 const createTypography = (variant: TypographyVariant) => {
-  function TypographyComponent(props: Omit<TypographyProps, 'variant'>) {
+  function Component<T extends AllowedTag = 'p'>(props: Omit<TypographyProps<T>, 'variant'>) {
     return <Typography variant={variant} {...props} />;
   }
-  return TypographyComponent;
+  return Component;
 };
 
 export const Title1 = createTypography('Title1');
