@@ -19,17 +19,10 @@ type TypographyVariant =
   | 'ButtonTitle1'
   | 'ButtonTitle2';
 
-type PolymorphicProps<E extends React.ElementType> = React.PropsWithChildren<
-  React.ComponentPropsWithoutRef<E> & {
-    as?: E;
-  }
->;
-
-type Props<E extends React.ElementType> = PolymorphicProps<E> & {
+type Props = {
   variant: TypographyVariant;
-  as?: React.ElementType;
   className?: string;
-} & ComponentPropsWithoutRef<E>;
+} & ComponentPropsWithoutRef<'p'>;
 
 const variantClasses = cva('whitespace-pre-wrap', {
   variants: {
@@ -55,17 +48,16 @@ const variantClasses = cva('whitespace-pre-wrap', {
   },
 });
 
-function Typography({ children, variant = 'Body1', className = '', as, ...props }: Props) {
-  const Component = as || 'p';
+function Typography({ children, variant = 'Body1', className = '', ...props }: Props) {
   return (
-    <Component className={cn(variantClasses({ type: variant }), className)} {...props}>
+    <p className={cn(variantClasses({ type: variant }), className)} {...props}>
       {children}
-    </Component>
+    </p>
   );
 }
 
-function createTypography<E extends React.ElementType>(variant: TypographyVariant) {
-  function Component(props: Omit<Props<E>, 'variant'>) {
+function createTypography(variant: TypographyVariant) {
+  function Component(props: Omit<Props, 'variant'>) {
     return <Typography variant={variant} {...props} />;
   }
   return Component;
