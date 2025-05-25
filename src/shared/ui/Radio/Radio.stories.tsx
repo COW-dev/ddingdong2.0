@@ -20,10 +20,8 @@ type Story = StoryObj<typeof RadioItem>;
 
 export const Default: Story = {
   args: {
-    label: 'Radio',
     disabled: false,
     size: 'md',
-    id: 'radio',
   },
   render: (args) => (
     <RadioRoot>
@@ -32,16 +30,16 @@ export const Default: Story = {
   ),
 };
 
-export const UnusingLabelOption: Story = {
+export const UsingWithLabel: Story = {
   render: () => (
     <RadioRoot className="flex flex-col gap-2">
       <div className="flex items-center gap-2">
         <RadioItem id="test" value="test" />
-        <label htmlFor="test">label option을 사용하지 않은 경우 1</label>
+        <label htmlFor="test">radio 1</label>
       </div>
       <div className="flex items-center gap-2">
         <RadioItem id="test2" value="test2" />
-        <label htmlFor="test2">label option을 사용하지 않은 경우 2</label>
+        <label htmlFor="test2">radio 2</label>
       </div>
     </RadioRoot>
   ),

@@ -20,19 +20,22 @@ type Story = StoryObj<typeof Checkbox>;
 
 export const Default: Story = {
   args: {
-    label: 'Checkbox',
-    id: 'default id',
     disabled: false,
     size: 'md',
   },
   render: (args) => <Checkbox {...args} />,
 };
-
-export const UnusingLabelOption: Story = {
+export const UsingWithLabel: Story = {
   render: () => (
-    <div className="flex items-center gap-2">
-      <Checkbox id="test" />
-      <label htmlFor="test">label option을 사용하지 않은 경우</label>
+    <div className="flex flex-col gap-2">
+      <div className="flex items-center gap-2">
+        <Checkbox id="test" value="test" />
+        <label htmlFor="test">checkbox 1</label>
+      </div>
+      <div className="flex items-center gap-2">
+        <Checkbox id="test2" value="test2" />
+        <label htmlFor="test2">checkbox 2</label>
+      </div>
     </div>
   ),
 };
