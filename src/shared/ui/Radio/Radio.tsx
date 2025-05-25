@@ -13,11 +13,7 @@ type Prop = {
 } & RadioGroupPrimitive.RadioGroupProps;
 
 export function RadioRoot({ children, ...props }: Prop) {
-  return (
-    <RadioGroupPrimitive.Root {...props}>
-      <>{children}</>
-    </RadioGroupPrimitive.Root>
-  );
+  return <RadioGroupPrimitive.Root {...props}>{children}</RadioGroupPrimitive.Root>;
 }
 
 type ItemProps = {
