@@ -91,17 +91,3 @@ export const Caption1 = createTypography('Caption1');
 export const Caption2 = createTypography('Caption2');
 export const ButtonTitle1 = createTypography('ButtonTitle1');
 export const ButtonTitle2 = createTypography('ButtonTitle2');
-
-type TypographyComponentProps<T extends React.ElementType> = {
-  as?: T;
-  children: React.ReactNode;
-} & ComponentPropsWithoutRef<T>;
-
-export function TypographyComponent<T extends React.ElementType = 'p'>({
-  as,
-  children,
-  ...props
-}: TypographyComponentProps<T>) {
-  const Component = as || 'p';
-  return <Component {...props}>{children}</Component>;
-}
