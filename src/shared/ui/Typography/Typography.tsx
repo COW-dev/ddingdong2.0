@@ -1,4 +1,4 @@
-import React, { ComponentPropsWithoutRef, createElement, ReactNode } from 'react';
+import { ComponentPropsWithoutRef, createElement, ReactNode } from 'react';
 import { cva } from 'class-variance-authority';
 
 import { cn } from '@/shared/lib/core';
