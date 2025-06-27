@@ -65,7 +65,7 @@ export function Typography<T extends AllowedTag = 'p'>({
     {
       className: cn(variantClasses({ type: props.variant }), className),
       ...props,
-    } as ComponentPropsWithoutRef<T>,
+    },
     children
   );
 }
