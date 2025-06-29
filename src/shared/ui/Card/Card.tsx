@@ -12,7 +12,7 @@ export type Props<T extends ElementType> = {
    * Additional CSS classNames to be applied to the Card.
    */
   className?: string;
-} & PropsWithChildren<ComponentProps<'div'>>;
+} & PropsWithChildren<ComponentProps<T>>;
 
 export function Card<T extends ElementType = 'div'>({
   as,
